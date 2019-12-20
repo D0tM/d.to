@@ -1,0 +1,57 @@
+//Center element
+.is\:centered{
+  margin: 0 auto;
+}
+//Overflow
+.setOverflow\:hidden{
+  overflow: hidden;
+}
+.setOverflowY\:hidden{
+  overflow-y: hidden;
+}
+.setOverflowX\:hidden{
+  overflow-x: hidden;
+}
+.setOverflow\:visible{
+  overflow: visible;
+}
+.setOverflowY\:visible{
+  overflow-y: visible;
+}
+.setOverflowX\:visible{
+  overflow-x: visible;
+}
+.setOverflow\:scroll{
+  overflow: scroll;
+}
+.setOverflowY\:scroll{
+  overflow-y: scroll;
+}
+.setOverflowX\:scroll{
+  overflow-x: scroll;
+}
+//Images
+.is\:round{
+  border-radius: 50%;
+}
+.has\:rounded-borders{
+  border-radius: 5px;
+}
+//Text alignment
+.has\:text-center{
+  text-align: center;
+}
+.has\:text-left{
+  text-align: left;
+}
+.has\:text-right{
+  text-align: right;
+}
+//SR text
+.is\:sr-only{
+  @include hide-text;
+}
+//Hide element
+.is\:hidden{
+  @include hide-block;
+}

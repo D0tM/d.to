@@ -1,0 +1,15 @@
+.group{
+  font-size:0;
+  @at-root #{&}Wrap{
+
+  }
+  @at-root #{&}__item{
+    font-size: initial;
+    display: inline-block;
+    padding: ($baseline / 2) $baseline; 
+    text-align: center;
+    &:not(:last-child){
+      border-left: 1px solid map-get($colors, 'border');
+    }
+  }
+}

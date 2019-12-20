@@ -1,0 +1,17 @@
+@if($isFloat == 1){
+  body {
+    height:100%;
+  }
+}
+.row{
+  @include generateRow();
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: map-get($wrapperWidths, 'desktop');
+}
+@if($isColumnBased == 1){
+  @include generateColumns();
+} @else if ($isFractionBased == 1){
+  @include generateFractions();
+}

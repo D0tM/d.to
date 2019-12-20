@@ -1,0 +1,123 @@
+.accordion {
+  @at-root #{&}Wrap {
+  }
+
+  @at-root #{&}__header,
+  #{&}__label {
+    position: relative;
+    padding: $baseline / 2;
+    padding-right: $baseline;
+    cursor: pointer;
+
+    &:after {
+      content: '+';
+      font-size: 1.5rem;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  @at-root #{&}__header,
+  #{&}__label {
+    padding: $baseline / 2;
+    padding-right: $baseline;
+  }
+
+  @at-root #{&}__label {
+    display: block;
+  }
+
+  @at-root #{&}__body {
+    padding: $baseline / 2;
+    opacity: 0;
+    transition: opacity 0.25s;
+
+    @at-root #{&}Wrap {
+      background-color: red;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease-in-out;
+    }
+  }
+
+  @at-root [data-drivenby="css"] #{&}{
+    position: relative;
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+
+      &:checked {
+        &~ {
+          .accordion__header {
+            .accordion__label {
+              &:after {
+                content: '-';
+              }
+            }
+          }
+
+          .accordion__bodyWrap {
+            max-height: 500px;
+            overflow: visible;
+            transition: max-height 0.25s ease-in-out;
+
+            .accordion__body {
+              opacity: 1;
+              transition: opacity 0.25s;
+            }
+          }
+        }
+      }
+
+      &:focus {
+        &~ {
+          .accordion__header {
+            .accordion__label {
+              outline-style: solid;
+              outline: 1px solid map-get($colors, 'border');
+            }
+          }
+        }
+      }
+    }
+
+    .accordion__header {
+      padding: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  @at-root [data-drivenby="js"] #{&}{
+
+    &.default, &.open {
+      .accordion__header {
+        &:after {
+          content: '-';
+        }
+      }
+
+      .accordion__bodyWrap {
+        max-height: 500px;
+        overflow: visible;
+        transition: max-height 0.25s ease-in-out;
+        .accordion__body{
+          opacity: 1;
+          transition: opacity 0.25s;
+        }
+      }
+    }
+  }
+}

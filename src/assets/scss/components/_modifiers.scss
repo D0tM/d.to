@@ -1,0 +1,224 @@
+@if($isFlex == 1){
+//Parent helpers
+  .is\:flex{
+    display: flex;
+  }
+
+  //Set children flow
+  .setFlow\:row-wrap{
+    flex-flow: row wrap;
+  }
+  .setFlow\:row-noWrap{
+    flex-flow: row nowrap;
+  }
+  .setFlow\:row-reverse{
+    flex-flow: row wrap-reverse;
+  }
+
+  .setFlow\:row-reverse-wrap{
+    flex-flow: row-reverse wrap;
+  }
+  .setFlow\:row-reverse-noWrap{
+    flex-flow: row-reverse nowrap;
+  }
+  .setFlow\:row-wrap-reverse{
+    flex-flow: row-reverse wrap-reverse;
+  }
+
+  .setFlow\:column-wrap{
+    flex-flow: column wrap;
+  }
+  .setFlow\:column-noWrap{
+    flex-flow: column nowrap;
+  }
+  .setFlow\:column-reverse{
+    flex-flow: column wrap-reverse;
+  }
+
+  .setFlow\:column-reverse-wrap{
+    flex-flow: column-reverse wrap;
+  }
+  .setFlow\:column-reverse-noWrap{
+    flex-flow: column-reverse nowrap;
+  }
+  .setFlow\:column-reverse{
+    flex-flow: column-reverse wrap-reverse;
+  }
+
+  //Set content direction
+  .justify\:start{
+    justify-content: flex-start;
+  }
+  .justify\:end{
+    justify-content: flex-end;
+  }
+  .justify\:center{
+    justify-content: center;
+  }
+  .justify\:around{
+    justify-content: space-around;
+  }
+  .justify\:between{
+    justify-content: space-between;
+  }
+  .justify\:evenly{
+    justify-content: space-evenly;
+  }
+
+  //Children alignment
+  .children\:start{
+    align-items: flex-start;
+  }
+  .children\:end{
+    align-items: flex-end;
+  }
+  .children\:center{
+    align-items: center;
+  }
+  .children\:stretch{
+    align-items: stretch;
+  }
+  .children\:baseline{
+    align-items: baseline;
+  }
+
+  //Content alignment
+  .content\:start{
+    justify-content: flex-start;
+  }
+  .content\:end{
+    justify-content: flex-end;
+  }
+  .content\:center{
+    justify-content: center;
+  }
+  .content\:around{
+    justify-content: space-around;
+  }
+  .content\:between{
+    justify-content: space-between;
+  }
+  .content\:stretch{
+    justify-content: stretch;
+  }
+  
+//Child helpers
+  .self\:start{
+    align-self: flex-start;
+  }
+  .self\:end{
+    align-self: flex-end;
+  }
+  .self\:center{
+    align-self: center;
+  }
+  .self\:baseline{
+    align-self: baseline;
+  }
+  .self\:stretch{
+    align-self: stretch;
+  }
+  @for $i from 1 through $columns {
+    .order\:#{nth($columnName, $i)}{
+      order: $i;
+    }
+  }
+  .can\:shrink{
+    flex-shrink: 1;
+  }
+  .can\:grow{
+    flex-grow: 1;
+  }
+} @else if($isFloat == 1){
+  //Float helpers
+  .floatTo\:left{
+    float:left;
+  }
+  .floatTo\:right{
+    float:right;
+  }
+  .is\:clearfix{
+    &:after{
+      content: '';
+      display:block;
+      clear:both;
+    }
+  }  
+  //Inline helpers
+  .is\:inline{
+    //Clear default 4px
+    font-size:0;
+    float:none;
+  }
+  .vAlign\:top{
+    vertical-align: top;
+  }
+  .vAlign\:mid{
+    vertical-align: middle;
+  }
+  .vAlign\:bot{
+    vertical-align: bottom;
+  }
+}
+//Absolute/Sticky helpers
+.is\:sticky{
+  position:fixed;
+}
+.is\:absolute{
+  position: absolute;
+}
+.fly\:center{
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+.fly\:center-left{
+  top:50%;
+  transform: translateY(-50%);
+}
+.fly\:center-right{
+  top:50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.fly\:center-bot{
+  bottom:0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fly\:center-top{
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fly\:bot{
+  bottom:0;
+}
+.fly\:top{
+  top:0;
+}
+.fly\:left{
+  left:0;
+}
+.fly\:right{
+  right:0;
+}
+.fly\:top-left{
+  left:0;
+  top:0;
+}
+.fly\:top-right{
+  top:0;
+  right:0;
+}
+.fly\:bottom-left{
+  bottom:0;
+  left:0;
+}
+.fly\:bottom-right{
+  bottom:0;
+  right:0;
+}
+.setIndex\:max{
+  z-index: 999999;
+}

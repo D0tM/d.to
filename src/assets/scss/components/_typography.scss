@@ -1,0 +1,69 @@
+.text\:center{
+  text-align:center;
+}
+.text\:left{
+  text-align: left;
+}
+.text\:right{
+  text-align: right;
+}
+.text\:uCase{
+  text-transform: uppercase;
+}
+.font\:bold{
+  font-weight: bold;
+}
+.font\:normal{
+  font-weight: normal;
+}
+.font\:coursive{
+  font-style: oblique;
+}
+html{
+  line-height: $baseline;
+  
+}
+body.vrhyt{
+  background: linear-gradient(rgba(#383838, 0.5), rgba(#383838, 0.5) 1px, transparent 1px);
+  background-size: 1px 1rem;
+}
+a{
+  text-decoration: none;
+  @at-root div #{&}, span #{&}, li #{&}{
+    display:block;
+  }
+}
+p{
+  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+h1, h2, h3, h4, h5, h6{
+  font-weight: bold;
+}
+h6{
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  line-height: 1.35;
+}
+h5{
+  margin-bottom: 1.15rem;
+  font-size: 1.8rem;
+}
+h4{
+  margin-bottom: 1.30rem;
+  font-size: 2.2rem ;
+}
+h3{
+  margin-bottom: 1.45rem;
+  font-size: 2.8rem;
+}
+h2{
+  margin-bottom: 1.60rem;
+  font-size: 4rem;
+  line-height: 1.20;
+}
+h1{
+  margin-bottom: 2rem;
+  font-size: 4.6rem;
+  line-height: 1.30;
+}

@@ -1,0 +1,9 @@
+//ColWidth calc 
+@function colWidth($colWidth, $maxCols) {
+  @return $colWidth / $maxCols * 100%;
+}
+
+//Column padding based on how many columns the project have
+@function colPadding($value, $device) {
+    @return 100% / $columns * $value;
+}

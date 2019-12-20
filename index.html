@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="dist/css/style.min.css">
+</head>
+
+<body>
+  <!-- <div class="row">
+    <div class="span:two tablet:five" style="background:#dedede; border-radius:5px;">mlem</div>
+    <div class="span:two tablet:five" style="background:#dedede; border-radius:5px;">mlem</div>
+    <div class="span:two tablet:four" style="background:#dedede; border-radius:5px;">mlem</div>
+    <div class="span:two tablet:four" style="background:#dedede; border-radius:5px;">mlem</div>
+    <div class="span:two tablet:four" style="background:#dedede; border-radius:5px;">mlem</div>
+  </div>
+  <div class="is:flex setFlow:row-wrap justify:between" style="margin-bottom:100px;">
+    <div style="background-color:royalblue; padding:20px; flex-basis:200px;">irgieu</div>
+    <div style="background-color:royalblue; padding:20px; flex-basis:200px;">irgieu</div>
+    <div style="background-color:royalblue; padding:20px; flex-basis:200px;">irgieu</div>
+  </div>
+  <div style="margin: 0 auto; width: 300px;">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam ipsa pariatur doloribus totam dolore facilis.</p>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+    <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, dicta.</h3>
+    <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, quos. Illo, quasi iste.</h4>
+    <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium quae rem, atque quia possimus magnam.</h5>
+    <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi laboriosam vitae saepe modi porro ea ipsa veritatis nemo quis placeat.</h6>
+  </div> -->
+  <h4>Accordion radio</h4>
+  <p>TAB -> up/down</p>
+  <div class="accordionWrap" data-accordion="8im89o8" data-drivenby="css">
+    <div class="accordion">
+      <input type="radio" id="pino" name="trigger">
+      <div class="accordion__header">
+        <label for="pino" class="accordion__label">
+          Test
+        </label>
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <input type="radio" id="nino" name="trigger">
+      <div class="accordion__header">
+        <label for="nino" class="accordion__label">
+          Test
+        </label>
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <input type="radio" id="ugo" name="trigger">
+      <div class="accordion__header">
+        <label for="ugo" class="accordion__label">
+          Test
+        </label>
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+  </div>
+  <hr class="divider">
+  <h4>Accordion checkbox</h4>
+  <p>TAB -> spacebar</p>
+  <div class="accordionWrap" data-accordion="23432r54f4" data-drivenby="css">
+    <div class="accordion">
+      <input type="checkbox" id="pino">
+      <div class="accordion__header">
+        <label for="pino" class="accordion__label">
+          Test
+        </label>
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <input type="checkbox" id="nino">
+      <div class="accordion__header">
+        <label for="nino" class="accordion__label">
+          Test
+        </label>
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <input type="checkbox" id="ugo">
+      <div class="accordion__header">
+        <label for="ugo" class="accordion__label">
+          Test
+        </label>
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+  </div>
+  <hr class="divider">
+  <h4>Accordion JS + keyboard</h4>
+  <div class="accordionWrap" data-accordion="34785yn4m0" data-allowmultiple="false" data-drivenby="js">
+    <div class="accordion default">
+      <div class="accordion__header" tabindex="1">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="2">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+  </div>
+  <hr class="divider">
+  <div class="accordionWrap" data-accordion="tijn7u67u67" data-allowmultiple="true" data-drivenby="js">
+    <div class="accordion">
+      <div class="accordion__header" tabindex="1">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="2">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+    <div class="accordion">
+      <div class="accordion__header" tabindex="3">
+        Test
+      </div>
+      <!--End header-->
+      <div class="accordion__bodyWrap">
+        <div class="accordion__body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia harum aut hic praesentium pariatur earum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End accordion-->
+  </div>
+  <script src="src/assets/scss/components/blocks/accordion/accordion.js"></script>
+</body>
+
+</html>

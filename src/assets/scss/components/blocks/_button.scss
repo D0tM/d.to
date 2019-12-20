@@ -1,0 +1,16 @@
+.button{
+  padding: ($baseline / 2) ($baseline);
+  display:inline-block;
+  @at-root#{&}Wrap{
+    margin: $baseline 0;
+  }
+  @at-root #{&}--full{
+    width:100%;
+    display:block;
+  }
+  @at-root #{&}--icon{
+    &:before, &:after{
+      display:block;
+    }
+  }
+}

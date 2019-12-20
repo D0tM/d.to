@@ -1,0 +1,38 @@
+//Grid variables
+$columnName : 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' !default;
+$columns: 10 !default;
+$gutter: 10px !default;
+$baseline: 24px !default;
+
+$fractions: (
+    full: 100%,
+    half: 50%,
+    one-third: 33.33333%,
+    two-thirds: 66.66666%,
+    one-fourth: 25%,
+    one-fifth: 20%,
+    two-fifths: 40%,
+    four-fifths: 80%,
+    one-sixth: 16.66666%,
+    five-sixths: 83.33333%
+) !default;
+
+//Switch on or off grid types
+
+$isFractionBased: 0 !default;
+$isColumnBased: 1 !default;
+$isFloat: 0 !default;
+$isFlex: 1 !default;
+
+//Wrapper widths
+
+$wrapperWidths: (
+    mobile: 400px,
+    tablet: 800px,
+    desktop: 1200px,
+);
+
+$colors: (
+    border: #d9e1e0,
+    main: #ffffff
+)!default;

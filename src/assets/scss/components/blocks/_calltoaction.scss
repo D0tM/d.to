@@ -1,0 +1,7 @@
+.cta{
+  padding: $baseline + $baseline / 2;
+  @at-root #{&}Wrap{
+    min-height: 400px;
+    background-color: map-get($colors, 'main');
+  }
+}
