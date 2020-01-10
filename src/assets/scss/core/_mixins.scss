@@ -184,8 +184,8 @@
   } @else if($param = 'right'){
     right:0;
   } @else if($param = 'padding'){
-    margin-left: #{-}$gutter;
-    margin-right: #{-}$gutter;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
   }
 }
 

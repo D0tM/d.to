@@ -1,0 +1,46 @@
+{
+	"name": "file-watcher",
+	"version": "1.0.0",
+	"description": "",
+	"main": "gulpfile.js",
+	"scripts": {
+		"dev": "node index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"@babel/preset-env": "^7.4.5",
+		"babelify": "^10.0.0",
+		"chalk": "^2.4.2",
+		"fs-extra": "^8.1.0",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-concat": "^2.5.2",
+		"gulp-confirm": "^1.0.8",
+		"gulp-options": "^1.1.1",
+		"gulp-real-favicon": "^0.3.2",
+		"gulp-rename": "^1.2.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.1",
+		"gulp-uglify": "^3.0.0",
+		"imagemin": "^7.0.1",
+		"rollup": "^1.23.1",
+		"rollup-plugin-async": "^1.2.0",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-node-resolve": "^5.2.0"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env"
+		]
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"Firefox ESR"
+	],
+	"dependencies": {
+		"gulp": "^4.0.2"
+	}
+}
