@@ -1,8 +1,10 @@
 //Grid variables
 $columnName : 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' !default;
+$font-size:16px!important;
 $columns: 10 !default;
 $gutter: 10px !default;
 $baseline: 24px !default;
+$icon-font: ''!default;
 
 $fractions: (
     full: 100%,

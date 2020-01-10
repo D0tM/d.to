@@ -1,0 +1,62 @@
+@mixin init-icon-font {
+	font-family: $icon-font;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	// Enable Ligatures
+	letter-spacing: 0;
+	-webkit-font-feature-settings: "liga";
+	-moz-font-feature-settings: "liga=1";
+	-moz-font-feature-settings: "liga";
+	-ms-font-feature-settings: "liga" 1;
+	-o-font-feature-settings: "liga";
+	font-feature-settings: "liga";
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon-font($icona:'',$colore:'',$font-size:$font-size,$direction:before){
+	@if $direction == after {
+		&:after {
+			@include init-icon-font;
+			@if $icona == data-icon {
+				content: attr(data-icon);
+			} @else {
+				content: quote($icona);
+				color: $colore;
+				font-size: $font-size;
+			}
+			@content;
+		}
+	} @else {
+		&:before {
+			@include init-icon-font;
+			@if $icona == data-icon {
+				content: attr(data-icon);
+			} @else {
+				content: quote($icona);
+				color: map-get($colors, 'main');
+				font-size: $font-size;
+			}
+			@content;
+		}
+	}
+}
+
+[data-icon]{
+  @include icon-font(data-icon);
+
+  &[data-iconPosition="after"]{
+    &:before { display: none; }
+    &:after {
+      @include init-icon-font;
+      content: attr(data-icon);
+    }
+  }
+}

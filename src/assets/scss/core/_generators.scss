@@ -1,5 +1,8 @@
 @mixin generateColumns() {
   $isPlural : '';
+  .span{
+    flex: 1 0 auto;
+  }
   .span\:auto{
     flex: 0 0 auto;
     width: auto;
@@ -67,11 +70,3 @@
     flex-flow: row wrap;
   }
 }
-
-// @mixin generateOffsets(){
-//   @if($isColumnBased == 1){
-//     @include generateColumns(1);
-//   } @else if($isFractionBased == 1){
-//     @include generateFractions(1);
-//   }
-// }

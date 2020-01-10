@@ -1,10 +1,11 @@
 @mixin clearfix {
   &:after {
-      content: '';
-      display: block;
-      clear: both;
+    content: '';
+    display: block;
+    clear: both;
   }
 }
+
 @mixin hide-block {
   margin: -1px;
   padding: 0;
@@ -15,6 +16,7 @@
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
+
 @mixin hide-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -22,4 +24,175 @@
   width: 1px;
   line-height: 1px;
   overflow: hidden;
+}
+
+@mixin ellipsis {
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin calcRem($property, $value, $important: false) {
+	font-size: $size;
+	font-size: calculateRem($size,$unit);
+
+	$remSize: $value / $font-size;
+	$hasImportant: null;
+
+	@if $important == true or $important == important {
+		$hasImportant: !important;
+	}
+
+	#{$property}: $value $hasImportant;
+	#{$property}: #{$remSize}rem $hasImportant;
+}
+
+@mixin font-size($size,$unit:rem) {
+	font-size: $size;
+	font-size: calculateRem($size,$unit);
+}
+
+/*
+###################################
+* Modifiers to use                *
+* While working on responsiveness *
+###################################
+*/
+
+@mixin flow($axis, $param) {
+  flex-flow: $axis $param;
+}
+
+@mixin content($param) {
+  justify-content: $param;
+}
+
+@mixin content-align($param) {
+  align-content: $param;
+}
+
+@mixin items($param) {
+  align-items: $param;
+}
+
+@mixin self($param) {
+  align-self: $param;
+}
+
+@mixin can($param) {
+  @if($param='grow') {
+    flex-grow: 1;
+  } @else if($param='shrink') {
+    flex-shrink: 1;
+  }
+}
+
+@mixin cant($param) {
+  @if($param='grow') {
+    flex-grow: 0;
+  } @else if($param='shrink') {
+    flex-shrink: 0;
+  }
+}
+
+@mixin order($param){
+  @if($param > $columns){
+    $param: $columns
+  }
+  order: $param;
+}
+
+@mixin floatTo($param){
+  float: $param;
+}
+
+@mixin is($param){
+  @if($param = 'clearfix'){
+    @include clearfix();
+  } @else if($param = 'inline'){
+    display: inline-block;
+  } @else if($param = 'fixed'){
+    position: fixed;
+  } @else if($param = 'absolute'){
+    position: absolute;
+  } @else if($param = 'flex'){
+    display:flex;
+  } @else if($param = 'centered'){
+    margin: 0 auto;
+  } @else if($param = 'round'){
+    border-radius: 50%;
+  }  @else if($param = 'hidden'){
+    @include hide-block;
+  }
+}
+
+@mixin has($param){
+  @if($param = 'rounded-borders'){
+    border-radius: 5px;
+  } @else if($param = 'text-left'){
+    text-align: left;
+  } @else if($param = 'text-center'){
+    text-align: center;
+  } @else if($param = 'text-right'){
+    text-align: right;
+  }
+}
+
+@mixin fly($param){
+  @if($param = 'center'){
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+  } @else if($param = 'center-left'){
+    top:50%;
+    transform: translateY(-50%);
+  } @else if($param = 'center-right'){
+    top:50%;
+    right: 0;
+    transform: translateY(-50%);
+  } @else if($param = 'center-bot'){
+    bottom:0;
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if($param = 'center-top'){
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if($param = 'top-left'){
+    left:0;
+    top:0;
+  } @else if($param = 'top-right'){
+    top:0;
+    right:0;
+  } @else if($param = 'bottom-left'){
+    bottom:0;
+    left:0;
+  } @else if($param = 'bottom-right'){
+    bottom:0;
+    right:0;
+  }
+}
+
+@mixin reset($param){
+  @if($param = 'bot'){
+    bottom:0;
+  } @else if($param = 'top'){
+    top:0;
+  } @else if($param = 'left'){
+    left:0;
+  } @else if($param = 'right'){
+    right:0;
+  } @else if($param = 'padding'){
+    margin-left: #{-}$gutter;
+    margin-right: #{-}$gutter;
+  }
+}
+
+@mixin setIndex($param){
+  z-index: $param;
+}
+
+@mixin vAlign($param){
+  vertical-align: $param;
 }
