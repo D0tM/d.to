@@ -41,6 +41,15 @@
 	}
 }
 
+@function calculateRem($size,$unit:rem) {
+	$remSize: $size / $font-size;
+	@if $unit == em {
+		@return $remSize * 1em;
+	} @else {
+		@return $remSize * 1rem;
+	}
+}
+
 @function get-aspect-ratio($width,$height,$round:round) {
 	$aspect: false;
 

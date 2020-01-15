@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'basic-icons';
+  src:
+    url('../../fonts/basic-icons.woff2') format('woff2'),
+    url('../../fonts/basic-icons.ttf') format('truetype'),
+    url('../../fonts/basic-icons.woff') format('woff'),
+    url('../../fonts/basic-icons.svg#basic-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 @mixin init-icon-font {
 	font-family: $icon-font;
 	speak: none;

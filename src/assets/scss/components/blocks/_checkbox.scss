@@ -1,4 +1,4 @@
-.checkbox{
+.check{
   position:relative;
   input[type="checkbox"]{
     position: absolute;
@@ -8,7 +8,7 @@
     visibility: hidden;
     pointer-events: none;
     &:checked{
-      .checkbox__label{
+      .radio__label{
         &:before{
           background-color: map-get($colors, 'border');
         }

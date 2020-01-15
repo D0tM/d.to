@@ -2,6 +2,7 @@
   border: 0;
   height: 1px;
   background-color: map-get($colors, 'main');
+  @include calc-rem('margin-bottom', $baseline / 2);
   
   @at-root #{&}__faded{
     border: 0;
@@ -21,7 +22,7 @@
     color: map-get($colors, 'main');
     text-align: center;
   }
-  @at-root #{&}__drop-shadown{
+  @at-root #{&}__drop-shadow{
     height: 12px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);

@@ -25,17 +25,12 @@
   @at-root #{&}__content{
     position: absolute;
     z-index: 1;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
+    @include fly('center');
     @at-root #{&}--left{
-      left: 10%;
-      transform: translateX(-10%);
+      @include fly('left');
     }
     @at-root #{&}--right{
-      left:unset;
-      right: 10%;
-      transform: translateX(10%);
+      @include fly('right');
     }
   }
   @at-root #{&}__title{

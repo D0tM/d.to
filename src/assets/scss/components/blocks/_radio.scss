@@ -1,0 +1,28 @@
+.radio{
+  position:relative;
+  input[type="radio"]{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    visibility: hidden;
+    pointer-events: none;
+    &:checked{
+      .radio__label{
+        &:before{
+          background-color: map-get($colors, 'border');
+        }
+      }
+    }
+  }
+  @at-root #{&}__label{
+    display:block;
+    &:before{
+      content: '';
+      display:inline-block;
+      width:18px;
+      height:18px;
+      border:1px solid map-get($colors, 'border');
+    }
+  }
+}

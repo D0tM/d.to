@@ -8,9 +8,4 @@
     width:100%;
     display:block;
   }
-  @at-root #{&}--icon{
-    &:before, &:after{
-      display:block;
-    }
-  }
 }

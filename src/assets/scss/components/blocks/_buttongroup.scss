@@ -1,10 +1,9 @@
 .group{
-  font-size:0;
+  @include is('inline');
   @at-root #{&}Wrap{
 
   }
   @at-root #{&}__item{
-    font-size: initial;
     display: inline-block;
     padding: ($baseline / 2) $baseline; 
     text-align: center;

@@ -1,0 +1,7 @@
+.tag{
+  @include calc-rem('padding', $baseline / 2);
+  font-weight: bold;
+  @include is('blunt');
+  background-color: map-get($colors, 'main');
+  border:2px solid map-get($colors, 'border');
+}

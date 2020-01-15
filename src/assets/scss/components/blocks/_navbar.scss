@@ -1,0 +1,35 @@
+@if($isFloat == 1){
+  .navbar{
+    @include is('flex');
+    @include flow('row', 'wrap');
+    @include content('space-between');
+    @at-root #{&}Wrap{
+    }
+    @at-root #{&}__logo{
+      @at-root #{&}Wrap{
+      }
+    }
+    @at-root #{&}__nav{
+      @at-root #{&}Wrap{
+
+      }
+    }
+  }
+} @else if($ifFlex == 1){
+  .navbar{
+    @include is('inline');
+    @at-root #{&}Wrap{
+  
+    }
+    @at-root #{&}__logo{
+      @at-root #{&}Wrap{
+  
+      }
+    }
+    @at-root #{&}__nav{
+      @at-root #{&}Wrap{
+
+      }
+    }
+  }
+}

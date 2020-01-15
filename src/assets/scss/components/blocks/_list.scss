@@ -1,0 +1,17 @@
+.list{
+  list-style-type: disc;
+  @at-root #{&}Wrap{
+
+  }
+  @at-root .list__item--has-children #{&}{
+    @include calc-rem('padding', $baseline / 2);
+  }
+  @at-root #{&}__item{
+    &:not(:last-child){
+      @include calc-rem('margin-bottom', $baseline / 2);
+    }
+  }
+  @at-root #{&}__link{
+    display:block;
+  }
+}

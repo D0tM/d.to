@@ -1,33 +1,30 @@
-.beadcrumb{
+.breadcrumb{
   font-size: 0;
   @at-root #{&}--boxed{
     background-color: map-get($colors, 'main');
-    .beadcrumb__item{
-      &:after{
-        right:0;
-        height: 100%;
-        width: 20px;
-      }
-    }
   }
   @at-root #{&}Wrap{
-
   }
   @at-root #{&}__item{
-    position: relative;
     display: inline-block;
     &:not(:last-child){
-      &:after{
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        right: 20px;
+      .breadcrumb__link{
+        &:after{
+          content: '';
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          @include calc-rem('right', -10px);
+          @include fly('center-right');
+        }
       }
     }
   }
+  @at-root #{&}__list{
+    @include is('inline');
+  }
   @at-root #{&}__link{
-    font-size: initial;
+    position: relative;
     display: block;
     padding: ($baseline / 2);
   }
