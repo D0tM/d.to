@@ -10,11 +10,8 @@
     cursor: pointer;
 
     &:after {
-      content: '+';
-      font-size: 1.5rem;
+      @include font-size($font-size);
       position: absolute;
-      width: 20px;
-      height: 20px;
       right: 20px;
       top: 50%;
       transform: translateY(-50%);
@@ -60,7 +57,7 @@
           .accordion__header {
             .accordion__label {
               &:after {
-                content: '-';
+                content: '\ed5e';
               }
             }
           }
@@ -104,7 +101,7 @@
     &.default, &.open {
       .accordion__header {
         &:after {
-          content: '-';
+          content: '\ed5e';
         }
       }
 

@@ -3,6 +3,7 @@
 @import 'core/functions';
 @import 'core/mixins';
 @import 'core/generators';
+@import 'core/icon-font';
 
 //Import components
 @import 'components/reset';
@@ -16,10 +17,10 @@
 @import 'components/blocks/breadcrumb';
 @import 'components/blocks/button';
 @import 'components/blocks/buttongroup';
-@import 'components/blocks/calltoaction';
 @import 'components/blocks/card';
 @import 'components/blocks/checkbox';
 @import 'components/blocks/divider';
 @import 'components/blocks/hero';
 @import 'components/blocks/switch';
 @import 'components/blocks/popover';
+@import 'components/blocks/blockquote';

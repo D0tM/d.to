@@ -1,8 +1,21 @@
 .quote{
+  position:relative;
+  @include font-size(25px);
+  padding: 1rem 3rem;
+  &:before{
+    @include is('absolute');
+    @include font-size(70px);
+    opacity:0.1;
+  }
+  &:before{
+    content: '\eb1b';
+    @include fly('top-left');
+  }
   @at-root #{&}Wrap{
-
+    
   }
   cite{
-    
+    display: block;
+    @include calc-rem('margin-top', $font-size);
   }
 }

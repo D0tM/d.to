@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'basic-icons';
   src:
-    url('../../fonts/basic-icons.woff2') format('woff2'),
-    url('../../fonts/basic-icons.ttf') format('truetype'),
-    url('../../fonts/basic-icons.woff') format('woff'),
-    url('../../fonts/basic-icons.svg#basic-icons') format('svg');
+    url('../../src/assets/fonts/basic-icons.woff2') format('woff2'),
+    url('../../src/assets/fonts/basic-icons.ttf') format('truetype'),
+    url('../../src/assets/fonts/basic-icons.woff') format('woff'),
+    url('../../src/assets/fonts/basic-icons.svg#basic-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -33,15 +33,15 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-@mixin icon-font($icona:'',$colore:'',$font-size:$font-size,$direction:before){
+@mixin icon-font($icon:'',$color:'',$font-size:$font-size,$direction:before){
 	@if $direction == after {
 		&:after {
 			@include init-icon-font;
-			@if $icona == data-icon {
+			@if $icon == data-icon {
 				content: attr(data-icon);
 			} @else {
-				content: quote($icona);
-				color: $colore;
+				content: quote($icon);
+				color: $color;
 				font-size: $font-size;
 			}
 			@content;
@@ -49,10 +49,10 @@
 	} @else {
 		&:before {
 			@include init-icon-font;
-			@if $icona == data-icon {
+			@if $icon == data-icon {
 				content: attr(data-icon);
 			} @else {
-				content: quote($icona);
+				content: quote($icon);
 				color: map-get($colors, 'main');
 				font-size: $font-size;
 			}
@@ -64,7 +64,7 @@
 [data-icon]{
   @include icon-font(data-icon);
 
-  &[data-iconPosition="after"]{
+  &[data-iconposition="after"]{
     &:before { display: none; }
     &:after {
       @include init-icon-font;
