@@ -1,28 +1,31 @@
 .radio{
   position:relative;
   input[type="radio"]{
-    position: absolute;
+    @include is('absolute');
     top:0;
     left:0;
     opacity:0;
-    visibility: hidden;
-    pointer-events: none;
+    width:1px;
+    height:1px;
     &:checked{
-      .radio__label{
+      & ~ .radio__label{
         &:before{
-          background-color: map-get($colors, 'border');
+          content: '\ee72';
         }
+      }
+    }
+    &:focus{
+      & ~ .radio__label {
+        border: 1px solid map-get($colors, 'border');
       }
     }
   }
   @at-root #{&}__label{
-    display:block;
+    cursor: pointer;
     &:before{
-      content: '';
+      @include calc-rem('margin-right', 5px);
+      @include font-size($font-size);
       display:inline-block;
-      width:18px;
-      height:18px;
-      border:1px solid map-get($colors, 'border');
     }
   }
 }

@@ -1,11 +1,14 @@
-@if($isFloat == 1){
+@if($isFlex == 1){
   .navbar{
     @include is('flex');
     @include flow('row', 'wrap');
     @include content('space-between');
+    @include items('center');
+    padding: $baseline / 2;
     @at-root #{&}Wrap{
     }
     @at-root #{&}__logo{
+      @include calc-rem('max-width', 200px);
       @at-root #{&}Wrap{
       }
     }
@@ -15,7 +18,7 @@
       }
     }
   }
-} @else if($ifFlex == 1){
+} @else if($isFloat == 1){
   .navbar{
     @include is('inline');
     @at-root #{&}Wrap{

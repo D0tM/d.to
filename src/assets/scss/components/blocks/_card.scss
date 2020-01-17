@@ -16,6 +16,7 @@
         background-position: center;
         background-size: cover;
         position: relative;
+        @include calc-rem('min-height', 300px);
 
         .card__image {
           @include is('absolute');
@@ -30,7 +31,7 @@
   }
 
   @at-root #{&}__body,
-  #{&}__footer {
+  #{&}__footer, #{&}__header {
     padding: $baseline / 2;
   }
 

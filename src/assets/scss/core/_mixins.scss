@@ -58,23 +58,23 @@
 */
 
 @mixin flow($axis, $param) {
-  flex-flow: $axis $param;
+  flex-flow: unquote($axis) unquote($param);
 }
 
 @mixin content($param) {
-  justify-content: $param;
+  justify-content: unquote($param);
 }
 
 @mixin content-align($param) {
-  align-content: $param;
+  align-content: unquote($param);
 }
 
 @mixin items($param) {
-  align-items: $param;
+  align-items: unquote($param);
 }
 
 @mixin self($param) {
-  align-self: $param;
+  align-self: unquote($param);
 }
 
 @mixin can($param) {
@@ -129,6 +129,8 @@
     height:100%;
   } @else if($param == 'blunt'){
     border-radius: 5px;
+  } @else if($param == 'inline-block'){
+    display:inline-block;
   }
 }
 
@@ -240,5 +242,5 @@
 }
 
 @mixin vAlign($param){
-  vertical-align: $param;
+  vertical-align: unquote($param);
 }

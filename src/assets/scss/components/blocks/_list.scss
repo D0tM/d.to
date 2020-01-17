@@ -3,15 +3,42 @@
   @at-root #{&}Wrap{
 
   }
+  @at-root .nav #{&}{
+    @if($isFlex == 1){
+      display:flex;
+      list-style-type: none;
+    } @else if($isFloat == 1){
+      @include is('inline');
+    }
+  }
   @at-root .list__item--has-children #{&}{
     @include calc-rem('padding', $baseline / 2);
+    @include is('absolute');
+    opacity: 0;
+    visibility: hidden;
   }
   @at-root #{&}__item{
     &:not(:last-child){
       @include calc-rem('margin-bottom', $baseline / 2);
     }
+    @at-root .nav #{&}{
+      margin-bottom: 0;
+      @include calc-rem('margin-right', $baseline / 2);
+    }
+    @at-root #{&}--has-children{
+      position: relative;
+      &:hover, &:focus{
+        .list{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
   }
   @at-root #{&}__link{
     display:block;
+  }
+  @at-root #{&}__title{
+
   }
 }
