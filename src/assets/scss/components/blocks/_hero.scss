@@ -1,8 +1,27 @@
 .hero{
-  position: relative;
-  height: 100%;
+  @if($isFlex == 1){
+    @include is('flex');
+    flex:1;
+    @include content('center');
+    @include items('center');
+    @at-root #{&}.content__left{
+      @include content('flex-start');
+    }
+    @at-root #{&}.content__right{
+      @include content('flex-end');
+    }
+  } @else if($isFloat == 1){
+    position: relative;
+    height: 100%;
+  }
   @at-root #{&}Wrap{
     height: 100vh;
+    @if($isFlex == 1){
+      @include is('flex');
+      position: relative;
+    } @else if($isFloat == 1){
+
+    }
     &[style]{
       background-position: center;
       background-size: cover;
@@ -21,14 +40,23 @@
     }
   }
   @at-root #{&}__content{
-    position: absolute;
-    z-index: 1;
-    @include fly('center');
-    @at-root #{&}--left{
-      @include fly('left');
+    @if($isFlex == 1){
+      position: relative;
+      z-index: 1;
+    } @else if($isFloat == 1){
+      position: absolute;
+      z-index: 1;
+      @include fly('center');
     }
-    @at-root #{&}--right{
-      @include fly('right');
+    @at-root .content__left #{&}{
+      @if($isFloat == 1){
+        @include fly('center-left');
+      } 
+    }
+    @at-root .content__right #{&}{
+      @if($isFloat == 1){
+        @include fly('center-right');
+      }
     }
   }
   @at-root #{&}__title{

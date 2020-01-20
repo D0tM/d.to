@@ -25,13 +25,20 @@
   
     }
     @at-root #{&}__logo{
+      @include calc-rem('max-width', 200px);
       @at-root #{&}Wrap{
-  
+        @include is('inline-block');
+        @include has('text-left');
+        @include vAlign('middle');
+        width: colWidth($columns / 2, $columns);
       }
     }
     @at-root #{&}__nav{
       @at-root #{&}Wrap{
-
+        @include is('inline-block');
+        @include has('text-right');
+        @include vAlign('middle');
+        width: colWidth($columns / 2, $columns);
       }
     }
   }

@@ -101,7 +101,7 @@
 }
 
 @mixin floatTo($param){
-  float: $param;
+  float: unquote($param);
 }
 
 @mixin is($param){
@@ -131,6 +131,8 @@
     border-radius: 5px;
   } @else if($param == 'inline-block'){
     display:inline-block;
+  }@else if($param == 'block'){
+    display:block;
   }
 }
 
@@ -150,11 +152,7 @@
   @if($param == 'center'){
     left:50%;
     top:50%;
-    @if($rotation != 0){
-      transform: translate(-50%, -50%) rotate($rotation#{'deg'});
-    } @else {
-      transform: translate(-50%, -50%);
-    }
+    transform:translate(-50%, -50%);
   } @else if($param == 'center-left'){
     top:50%;
     left:0;
@@ -166,19 +164,11 @@
   } @else if($param == 'center-right'){
     top:50%;
     right: 0;
-    @if($rotation != 0){
-      transform: translateY(-50%) rotate($rotation#{'deg'});
-    } @else {
-      transform: translateY(-50%);
-    }
-  } @else if($param == 'center-bot'){
+    transform:translateY(-50%);
+  } @else if($param == 'center-bottom'){
     bottom:0;
     left: 50%;
-    @if($rotation != 0){
-      transform: translateX(-50%) rotate($rotation#{'deg'});
-    } @else {
-      transform: translateX(-50%);
-    }
+    transform:translateX(-50%);
   } @else if($param == 'center-top'){
     top:0;
     left: 50%;
@@ -190,35 +180,15 @@
   } @else if($param == 'top-left'){
     left:0;
     top:0;
-    @if($rotation != 0){
-
-    } @else {
-
-    }
   } @else if($param == 'top-right'){
     top:0;
     right:0;
-    @if($rotation != 0){
-
-    } @else {
-
-    }
   } @else if($param == 'bottom-left'){
     bottom:0;
     left:0;
-    @if($rotation != 0){
-
-    } @else {
-
-    }
   } @else if($param == 'bottom-right'){
     bottom:0;
     right:0;
-    @if($rotation != 0){
-
-    } @else {
-
-    }
   }
 }
 

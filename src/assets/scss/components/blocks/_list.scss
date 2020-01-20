@@ -4,9 +4,9 @@
 
   }
   @at-root .nav #{&}{
+    list-style-type: none;
     @if($isFlex == 1){
       display:flex;
-      list-style-type: none;
     } @else if($isFloat == 1){
       @include is('inline');
     }
@@ -22,6 +22,9 @@
       @include calc-rem('margin-bottom', $baseline / 2);
     }
     @at-root .nav #{&}{
+      @if($isFloat == 1){
+        @include is('inline-block');
+      }
       margin-bottom: 0;
       @include calc-rem('margin-right', $baseline / 2);
     }
