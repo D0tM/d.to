@@ -1,0 +1,10 @@
+.search{
+  @at-root #{&}Wrap{
+
+  }
+  @at-root #{&}__results{
+    @at-root #{&}Wrap{
+
+    }
+  }
+}

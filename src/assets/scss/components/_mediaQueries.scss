@@ -1,5 +1,5 @@
 //Mobile
-@media screen and (min-width:480px){
+@media screen and (min-width: map-get($breakpoints, 'mobile')){
   @if($isFractionBased == 1){
     .row {
       [class*="is"]{
@@ -24,7 +24,7 @@
   }
 }
 //Tablet
-@media screen and (min-width:768px){
+@media screen and (min-width: map-get($breakpoints, 'tablet')){
   @if($isFractionBased == 1){
     .row {
       @each $element, $fraction in $fractions {
@@ -57,7 +57,7 @@
   }
 }
 //Desktop
-@media screen and (min-width:992px){
+@media screen and (min-width: map-get($breakpoints, 'desktop')){
   @if($isFractionBased == 1){
     .row {
       @each $element, $fraction in $fractions {
@@ -76,6 +76,37 @@
     .row {
       @for $i from 1 through $columns {
         .desktop\:#{nth($columnName, $i)}{
+          @if($isFloat == 1){
+            width: (100% / $columns) * $i;
+          } @else if($isFlex == 1){
+            flex: 0 0 (100% / $columns) * $i;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Widescreen
+@media screen and (min-width: map-get($breakpoints, 'widescreen')){
+  @if($isFractionBased == 1){
+    .row {
+      @each $element, $fraction in $fractions {
+        @if($isFloat == 1){
+          .wide\:#{$element}{
+            width: $fraction;
+          }
+        } @else if($isFlex == 1){
+          .wide\:#{$element}{
+            flex: 0 0 $fraction;
+          }
+        }
+      }
+    }
+  } @else if($isColumnBased == 1){
+    .row {
+      @for $i from 1 through $columns {
+        .wide\:#{nth($columnName, $i)}{
           @if($isFloat == 1){
             width: (100% / $columns) * $i;
           } @else if($isFlex == 1){

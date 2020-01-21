@@ -3,12 +3,19 @@
   @at-root #{&}Wrap{
 
   }
-  @at-root .nav #{&}{
+  @at-root .nav #{&}, .wizard #{&}{
     list-style-type: none;
     @if($isFlex == 1){
       display:flex;
     } @else if($isFloat == 1){
       @include is('inline');
+    }
+  }
+  @at-root .wizard #{&}{
+    @if($isFlex == 1){
+      @include content('center');
+    } @else if($isFloat == 1){
+      @include has('text-center');
     }
   }
   @at-root .list__item--has-children #{&}{
@@ -21,7 +28,7 @@
     &:not(:last-child){
       @include calc-rem('margin-bottom', $baseline / 2);
     }
-    @at-root .nav #{&}{
+    @at-root .nav #{&}, .wizard #{&}{
       @if($isFloat == 1){
         @include is('inline-block');
       }

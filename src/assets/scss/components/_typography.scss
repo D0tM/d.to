@@ -1,0 +1,15 @@
+textarea{
+  resize: vertical;
+}
+select{
+  appearance: none;
+}
+input, select, textarea{
+  width:100%;
+  @include font-size($font-size);
+}
+input, textarea, select{
+  @include calc-rem('padding', $baseline / 2);
+  border:1px solid map-get($colors, 'border');
+  @include is('blunt');
+}

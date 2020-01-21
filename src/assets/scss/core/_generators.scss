@@ -16,7 +16,7 @@
         width: (100% / $columns) * $i;
       } @else if($isFlex == 1){
         flex: 0 0 (100% / $columns) * $i;
-        //max-width: (100% / $columns) * $i;
+        max-width: (100% / $columns) * $i;
       }
       @at-root .is\:inline #{&}{
         display:inline-block;
@@ -48,7 +48,7 @@
       @if($isFloat){
         float:left;
       } @else if($isFlex == 1){
-        flex: 1;
+        flex: 0 0 auto;
       }
     }
     .move\:#{$element}{

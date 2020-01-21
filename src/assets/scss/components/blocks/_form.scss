@@ -1,0 +1,97 @@
+.form{
+  @at-root #{&}Wrap{
+
+  }
+  @at-root #{&}__group{
+    border:0;
+    &:not(:last-child){
+      @include calc-rem('margin-bottom', $baseline);
+    }
+    @if($isFlex == 1){
+      @include is('flex');
+    } @else if($isFloat == 1){
+      @include is('clearfix');
+    }
+    @at-root .wizard #{&}{
+      @include is('absolute');
+      z-index: -1;
+      opacity: 0;
+      width:100%;
+      height: 100%;
+      transition: opacity 0.25s;
+    }
+    @at-root .wizard #{&}{
+      &.active{
+        position: relative;
+        z-index: 1;
+        opacity: 1;
+        transition: opacity 0.25s;
+      }
+    }
+  }
+  @at-root #{&}__description{
+    @include has('text-center');
+    @if($isFlex == 1){
+      flex: 0 0 100%;
+    } @else if($isFloat == 1){
+      @include is('block');
+      width:100%;
+      @include floatTo('left');
+    }
+  }
+  @at-root #{&}__item{
+    position: relative;
+    &:not(:last-child){
+      @include calc-rem('margin-bottom', $baseline);
+    }
+  }
+  @at-root #{&}__label{
+    @include is('block');
+    @include calc-rem('margin-bottom', $baseline / 2);
+  }
+  @at-root #{&}__input{
+    @include calc-rem('margin-bottom', $baseline / 2);
+    @at-root #{&}Wrap{
+      position: relative;
+    }
+  }
+  @at-root #{&}__select{
+    @at-root #{&}Wrap{
+      position: relative;
+      &:before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 5px 0 5px;
+        border-color: #343434 transparent transparent transparent;
+        @include is('absolute');
+        @include fly('center-right');
+        right: $baseline / 2;
+      }
+    }
+  }
+  @at-root #{&}__textarea{
+    @include calc-rem('min-height', 200px);
+  }
+  @at-root #{&}__error, #{&}__info, #{&}__warning{
+    color:#fff;
+    @include is('inline-block');
+    @include calc-rem('padding', $baseline / 2 - 6);
+    @include has('text-center');
+    &:before{
+      @include calc-rem('margin-right', $gutter / 2);
+      @include font-size($font-size - 3);
+      position: relative;
+    }
+  }
+  @at-root #{&}__error{
+    background-color: red;
+  }
+  @at-root #{&}__info{
+    background-color: royalblue;
+  }
+  @at-root #{&}__warning{
+    background-color: wheat;
+  }
+}

@@ -1,3 +1,29 @@
+/*
+###################################
+* Media queries                   *
+###################################
+*/
+@mixin until($breakpoint){
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)){
+    @content;
+  }
+}
+@mixin after($breakpoint){
+  @media screen and (min-width: map-get($breakpoints, $breakpoint)){
+    @content;
+  }
+}
+@mixin between($start, $end){
+  @media screen and (min-width: map-get($breakpoints, $start)) and (max-width: map-get($breakpoints, $end)){
+    @content;
+  }
+}
+
+/*
+###################################
+* Utilities                       *
+###################################
+*/
 @mixin clearfix {
   &:after {
     content: '';
@@ -53,7 +79,7 @@
 /*
 ###################################
 * Modifiers to use                *
-* While working on responsiveness *
+* while working on responsiveness *
 ###################################
 */
 
@@ -131,7 +157,7 @@
     border-radius: 5px;
   } @else if($param == 'inline-block'){
     display:inline-block;
-  }@else if($param == 'block'){
+  } @else if($param == 'block'){
     display:block;
   }
 }

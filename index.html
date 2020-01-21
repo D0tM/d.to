@@ -320,8 +320,6 @@
       <!--End accordion-->
     </div>
     <hr class="divider divider__drop-shadow">
-    <h4>Tab</h4>
-    <hr class="divider divider__drop-shadow">
     <h4>PopOver</h4>
     <br>
     <div style="position:relative; max-width:200px; margin: 0 auto;">
@@ -422,11 +420,129 @@
       </li>
       <!--End item-->
     </ul>
+    <hr class="divider divider__drop-shadow">
+    <h4>Table</h4>
+    <div class="tableWrap">
+      <table class="table table__striped">
+        <caption class="is:sr-only">Sample table</caption>
+        <thead>
+          <tr class="table__row">
+            <th class="table__head"></th>
+            <th scope="col" class="table__head">Text</th>
+            <th scope="col" class="table__head">Text 1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table__row">
+            <td scope="row" class="table__cell">1</td>
+            <td class="table__cell">10</td>
+            <td class="table__cell">20</td>
+          </tr>
+          <tr class="table__row">
+            <td scope="row" class="table__cell">2</td>
+            <td class="table__cell">5</td>
+            <td class="table__cell">25</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="table__row">
+            <th scope="col" class="table__head">Total</th>
+            <td class="table__cell">15</td>
+            <td class="table__cell">45</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <hr class="divider divider__drop-shadow">
+    <h4>Wizard</h4>
+    <div class="wizardWrap">
+      <section class="wizard">
+        <header class="wizard__header">
+          <h3 class="wizard__title">Title</h3>
+          <h5 class="wizard__subtitle">Subtitle</h5>
+        </header>
+        <ul class="list">
+          <li class="list__item active" tabindex="1" role="button" data-step="0">
+            Step 1
+          </li>
+          <!--End item-->
+          <li class="list__item" tabindex="1" role="button" data-step="1">
+            Step 2
+          </li>
+          <!--End item-->
+        </ul>
+        <form action="" method="" class="wizard__body form">
+          <fieldset class="form__group active">
+            <legend class="form__description">Description</legend>
+            <div class="form__item">
+              <label for="name" class="form__label">Name</label>
+              <input type="text" class="form__input" name="name" id="name" placeholder="Name" pattern="" required>
+              <span class="form__error" data-icon="cancel-circle">Error</span>
+              <span class="form__info" data-icon="notification">Notification</span>
+              <span class="form__warning" data-icon="warning">Warning</span>
+            </div>
+            <!--End item-->
+          </fieldset>
+          <!--End group-->
+          <fieldset class="form__group">
+            <legend class="form__description">Description 2</legend>
+            <div class="form__item">
+              <label for="email" class="form__label">Email</label>
+              <input type="email" class="form__input" email="email" id="email" placeholder="Email" pattern="" required>
+              <span class="form__error" data-icon="cancel-circle">Error</span>
+              <span class="form__info" data-icon="notification">Notification</span>
+              <span class="form__warning" data-icon="warning">Warning</span>
+            </div>
+            <!--End item-->
+            <div class="form__item">
+              <label for="email" class="form__label">Select</label>
+              <div class="form__selectWrap">
+                <select name="selection" id="selection" class="form__select">
+                  <option value="none" default selected disabled>---</option>
+                  <option value="1">Text</option>
+                </select>
+              </div>
+            </div>
+            <!--End item-->
+            <div class="form__item">
+              <label for="email" class="form__label">Select</label>
+              <textarea class="form__textarea" name="area" id="area" cols="30" rows="10" placeholder="Text"></textarea>
+            </div>
+            <!--End item-->
+            <div class="buttonWrap">
+              <button class="button">Submit</button>
+            </div>
+          </fieldset>
+          <!--End group-->
+        </form>
+        <footer class="wizard__footer">
+          <div class="buttonWrap">
+            <button class="button" data-action="prev" data-icon="chevron-left" disabled>
+              Prev
+            </button>
+          </div>
+          <!--End button-->
+          <div class="buttonWrap active">
+            <button class="button" data-action="next" data-icon="chevron-right">
+              Next
+            </button>
+          </div>
+          <!--End button-->
+        </footer>
+      </section>
+    </div>
+  </div>
+  <hr class="divider divider__drop-shadow">
+  <h4>Grid</h4>
+  <div class="row">
+    <div class="span tablet:four desktop:five" style="background-color: darkgoldenrod; min-height: 10px; margin-bottom:10px"></div>
+    <div class="span tablet:six desktop:five" style="background-color: cadetblue; min-height: 10px; margin-bottom:10px"></div>
   </div>
   <script src="src/assets/scss/components/blocks/accordion/accordion.js"></script>
   <script src="src/assets/scss/components/blocks/rating/rating.js"></script>
   <script src="src/assets/scss/components/blocks/hint/hint.js"></script>
   <!-- <script src="src/assets/scss/components/blocks/tab/tab.js"></script> -->
+  <script src="src/assets/scss/components/blocks/wizard/wizard.js"></script>
 </body>
 
 </html>
