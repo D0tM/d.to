@@ -52,11 +52,15 @@
   overflow: hidden;
 }
 
-@mixin ellipsis {
-	overflow: hidden;
-	-o-text-overflow: ellipsis;
+@mixin ellipsis($axis, $param) {
+  overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
+  white-space: nowrap;
+  @if($axis == 'width'){
+    max-width: $param;
+  } @else if($axis == 'height'){
+    max-height: $param;
+  }
 }
 
 @mixin calc-rem($property, $value, $important: false) {
@@ -74,6 +78,12 @@
 
 @mixin font-size($size,$unit:rem) {
 	font-size: calculateRem($size,$unit);
+}
+
+@mixin default-focus(){
+  &:focus{
+    -webkit-appearance: push-button;
+  }
 }
 
 /*

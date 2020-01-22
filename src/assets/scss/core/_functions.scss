@@ -1,6 +1,6 @@
 //ColWidth calc 
-@function colWidth($colWidth, $maxCols) {
-  @return $colWidth / $maxCols * 100%;
+@function colWidth($colWidth) {
+  @return $colWidth / $columns * 100%;
 }
 
 //Column padding based on how many columns the project have
