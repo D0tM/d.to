@@ -8,13 +8,13 @@
     padding: $baseline / 2;
     padding-right: $baseline;
     cursor: pointer;
-
     &:after {
       @include font-size($font-size);
       position: absolute;
       right: 20px;
       top: 50%;
       transform: translateY(-50%);
+      color: map-get($colors, 'headings');
     }
   }
 
@@ -24,8 +24,13 @@
     padding-right: $baseline;
   }
 
+  @at-root #{&}__header{
+    @include calc-rem('margin-bottom', $baseline / 2);
+  }
+
   @at-root #{&}__label {
     display: block;
+    border:1px solid map-get($colors, 'border');
   }
 
   @at-root #{&}__body {
@@ -79,8 +84,7 @@
         &~ {
           .accordion__header {
             .accordion__label {
-              outline-style: solid;
-              outline: 1px solid map-get($colors, 'border');
+              @include add-focus();
             }
           }
         }

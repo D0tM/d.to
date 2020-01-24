@@ -41,6 +41,7 @@
         .list{
           opacity: 1;
           visibility: visible;
+          @include setIndex(5);
         }
       }
     }
@@ -49,6 +50,8 @@
     display:block;
   }
   @at-root #{&}__title{
-
+    @include font-size($font-size);
+    margin-bottom: 0;
+    line-height: 1;
   }
 }

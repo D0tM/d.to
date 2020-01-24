@@ -80,10 +80,8 @@
 	font-size: calculateRem($size,$unit);
 }
 
-@mixin default-focus(){
-  &:focus{
-    -webkit-appearance: push-button;
-  }
+@mixin add-focus(){
+  box-shadow: 0px 0px 0px 3px rgba(160,182,250,1);
 }
 
 /*

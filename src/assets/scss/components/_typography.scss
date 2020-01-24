@@ -1,3 +1,13 @@
+html {
+  font-family: $font-family, sans-serif;
+  color: map-get($colors, 'font' )
+}
+*{
+  &:focus{
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(160,182,250,1);
+  }
+}
 textarea{
   resize: vertical;
 }
@@ -12,4 +22,82 @@ input, textarea, select{
   @include calc-rem('padding', $baseline / 2);
   border:1px solid map-get($colors, 'border');
   @include is('blunt');
+}
+h1, h2, h3, h4, h5, h6{
+  font-weight: 900;
+  color: map-get($colors, 'headings');
+}
+h1{
+  @include font-size(92px);
+  line-height: 1.15;
+  @include calc-rem('margin-bottom', $baseline);
+  @include until('desktop'){
+    @include font-size(32px);
+    line-height: 1.25;
+    @include calc-rem('margin-bottom', $baseline / 2);
+  }
+}
+h2{
+  @include font-size(72px);
+  line-height: 1.25;
+  @include calc-rem('margin-bottom', $baseline);
+  @include until('desktop'){
+    @include font-size(26px);
+    @include calc-rem('margin-bottom', $baseline / 2);
+  }
+}
+h3{
+  @include font-size(64px);
+  line-height: 1.25;
+  @include calc-rem('margin-bottom', $baseline);
+  @include until('desktop'){
+    @include font-size(22px);
+    @include calc-rem('margin-bottom', $baseline / 2);
+  }
+}
+h4{
+  @include font-size(48px);
+  line-height: 1.25;
+  @include calc-rem('margin-bottom', $baseline);
+  @include until('desktop'){
+    @include font-size(18px);
+    line-height: 1.55;
+    @include calc-rem('margin-bottom', $baseline / 2);
+  }
+}
+h5{
+  @include font-size(40px);
+  line-height: 1.25;
+  @include calc-rem('margin-bottom', $baseline / 2);
+  @include until('desktop'){
+    line-height: 1.55;
+    @include font-size(16px);
+  }
+}
+h6{
+  @include font-size(36px);
+  line-height: 1.25;
+  @include calc-rem('margin-bottom', $baseline / 2);
+  @include until('desktop'){
+    line-height: 1.55;
+    @include font-size(16px);
+  }
+}
+p{
+  @include font-size(17px);
+  line-height: 1.75;
+  @include calc-rem('margin-bottom', $baseline);
+  @include until('desktop'){
+    @include font-size(16px);
+  }
+}
+strong, em, b, cite{
+  color: map-get($colors, 'headings');
+}
+cite{
+  font-weight: bold;
+}
+iframe, video{
+  width:100%;
+  height: auto;
 }

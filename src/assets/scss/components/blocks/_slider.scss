@@ -44,7 +44,7 @@
   @at-root #{&}__prev, #{&}__next{
     @include is('absolute');
     @include setIndex(1);
-    @include defaultFocus();
+    @include add-focus();
   }
   @at-root #{&}__prev{
     @include fly('center-left');

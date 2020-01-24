@@ -16,7 +16,7 @@
     }
     &:focus{
       & ~ .check__label {
-        border: 1px solid map-get($colors, 'border');
+        @include add-focus();
       }
     }
   }

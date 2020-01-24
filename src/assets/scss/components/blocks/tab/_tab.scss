@@ -18,7 +18,7 @@
     @if($isFlex == 1){
       &:focus{
         & + .tab__label{
-          border: 2px solid map-get($colors, 'border');
+          @include add-focus();
         }
       }
       &:checked{
@@ -57,7 +57,7 @@
     }
     &:focus{
       @if($isFloat == 1){
-        border: 2px solid map-get($colors, 'border');
+        @include add-focus();
       }
     }
   }

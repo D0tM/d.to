@@ -25,8 +25,7 @@
       }
       &:focus{
         & ~ .switch__trigger{
-          outline-style: solid;
-          outline: 1px solid map-get($colors, 'border');
+          @include add-focus();
         }
       }
     }

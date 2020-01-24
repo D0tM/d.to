@@ -117,10 +117,16 @@ $positions: 'center-right', 'center-left', 'center-top', 'center-bottom', 'top-l
     }
   }
   @at-root #{&}__title{
-
+    @include font-size(20px);
+    line-height: 1.25;
+    @include calc-rem('margin-bottom', ($baseline / 2) - 6);
   }
   @at-root #{&}__content{
-    @include calc-rem('padding', (($baseline / 2) - 6));
+    @include calc-rem('padding', $baseline / 2);
     background-color: map-get($colors, 'main');
+    @include font-size(16px);
+    p{
+      margin-bottom: 0;
+    }
   }
 }

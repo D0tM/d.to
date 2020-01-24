@@ -1,6 +1,7 @@
 //Grid variables
 $columnName : 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' !default;
 $font-size:16px!default;
+$font-family: 'Lato'!default;
 $columns: 10 !default;
 $gutter: 10px !default;
 $baseline: 24px !default;
@@ -42,7 +43,11 @@ $wrapperWidths: (
 );
 
 $colors: (
+    font: #93939d,
+    headings: #1b1b25,
     border: #d9e1e0,
     main: #ffffff,
-    shadow: #000
+    secondary: #fff,
+    tertiary: #fff,
+    shadow: #000,
 )!default;
