@@ -1,0 +1,22 @@
+{
+  "website":{
+    "version": 1.0
+  },
+  "plugins":{
+    "accordion": false,
+    "hint": false,
+    "modal": false,
+    "rating": false,
+    "tab": false,
+    "wizard": false,
+    "slider": false,
+    "lightbox": false,
+    "equal-height": false,
+    "scroll-detection": false,
+    "sticky": false,
+    "table-sorting": false,
+    "touch-events": false,
+    "smooth-scroll": false,
+    "is-in-viewport": false
+  }
+}

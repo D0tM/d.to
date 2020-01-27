@@ -2,3 +2,13 @@
 .is\:sr-only{
   @include hide-text;
 }
+//Hide everything on IE
+.ie-block{
+  position: fixed;
+  @include fly('center');
+  @include is('page-wide');
+  text-align: center;
+  & ~ * {
+    opacity: 0;
+  }
+}
