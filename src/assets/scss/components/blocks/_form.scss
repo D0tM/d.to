@@ -8,12 +8,12 @@
       @include calc-rem('margin-bottom', $baseline);
     }
     @if($isFlex == 1){
-      @include is('flex');
+      display:flex;
     } @else if($isFloat == 1){
       @include is('clearfix');
     }
     @at-root .wizard #{&}{
-      @include is('absolute');
+      position: absolute;
       z-index: -1;
       opacity: 0;
       width:100%;
@@ -34,7 +34,7 @@
     @if($isFlex == 1){
       flex: 0 0 100%;
     } @else if($isFloat == 1){
-      @include is('block');
+      display:block;
       width:100%;
       @include floatTo('left');
     }
@@ -46,7 +46,7 @@
     }
   }
   @at-root #{&}__label{
-    @include is('block');
+    display:block;
     @include calc-rem('margin-bottom', $baseline / 2);
   }
   @at-root #{&}__input{
@@ -65,7 +65,7 @@
         border-style: solid;
         border-width: 7px 5px 0 5px;
         border-color: #343434 transparent transparent transparent;
-        @include is('absolute');
+        position: absolute;
         @include fly('center-right');
         right: $baseline / 2;
       }
@@ -76,7 +76,7 @@
   }
   @at-root #{&}__error, #{&}__info, #{&}__warning{
     color:#fff;
-    @include is('inline-block');
+    display:inline-block;
     @include calc-rem('padding', $baseline / 2 - 6);
     @include has('text-center');
     &:before{

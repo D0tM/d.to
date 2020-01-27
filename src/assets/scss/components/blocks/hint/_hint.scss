@@ -3,8 +3,8 @@ $positions: 'center-right', 'center-left', 'center-top', 'center-bottom', 'top-l
   position: relative;
   box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.4);
   @at-root #{&}Wrap{
-    @include is('absolute');
-    @include setIndex(10);
+    position: absolute;
+    z-index: 10;
     @include calc-rem('min-width', 200px);
     display:none;
     @at-root #{&}.active{
@@ -50,7 +50,7 @@ $positions: 'center-right', 'center-left', 'center-top', 'center-bottom', 'top-l
   &[data-tailposition]{
     &:before{
       content: '';
-      @include is('absolute');
+      position: absolute;
       width: 0;
       height: 0;
       box-sizing: border-box;

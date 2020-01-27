@@ -1,6 +1,6 @@
 @if($isFlex == 1){
   .navbar{
-    @include is('flex');
+    display:flex;
     @include flow('row', 'wrap');
     @include content('space-between');
     @include items('center');
@@ -27,17 +27,17 @@
     @at-root #{&}__logo{
       @include calc-rem('max-width', 200px);
       @at-root #{&}Wrap{
-        @include is('inline-block');
+        display:inline-block;
         @include has('text-left');
-        @include vAlign('middle');
+        vertical-align: middle;
         width: colWidth($columns / 2, $columns);
       }
     }
     @at-root #{&}__nav{
       @at-root #{&}Wrap{
-        @include is('inline-block');
+        display:inline-block;
         @include has('text-right');
-        @include vAlign('middle');
+        vertical-align: middle;
         width: colWidth($columns / 2, $columns);
       }
     }

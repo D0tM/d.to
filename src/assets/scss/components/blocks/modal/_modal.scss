@@ -1,6 +1,6 @@
 .modal{
-  @include is('fixed');
-  @include setIndex(100);
+  position: fixed;
+  z-index: 100;
   @include fly('center');
   top: 60%;
   opacity: 0;
@@ -19,7 +19,7 @@
     position: relative;
     @at-root #{&}[data-drivenby="css"]{
       input[type="checkbox"]{
-        @include is('absolute');
+        position: absolute;
         top:0;
         left:0;
         opacity: 0;
@@ -38,8 +38,8 @@
     }
     &:before{
       content: '';
-      @include is('fixed');
-      @include setIndex(5);
+      position: fixed;
+      z-index: 5;
       @include fly('top-left');
       @include is('page-wide');
       opacity:0;
@@ -60,7 +60,7 @@
     position: relative;
   }
   @at-root #{&}__close{
-    @include is('absolute');
+    position: absolute;
     @include fly('top-right');
     font-size: 0;
     &:before{

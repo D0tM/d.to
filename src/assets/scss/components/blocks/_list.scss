@@ -20,7 +20,7 @@
   }
   @at-root .list__item--has-children #{&}{
     @include calc-rem('padding', $baseline / 2);
-    @include is('absolute');
+    position: absolute;
     opacity: 0;
     visibility: hidden;
   }
@@ -30,7 +30,7 @@
     }
     @at-root .nav #{&}, .wizard #{&}{
       @if($isFloat == 1){
-        @include is('inline-block');
+        display:inline-block;
       }
       margin-bottom: 0;
       @include calc-rem('margin-right', $baseline / 2);
@@ -41,7 +41,7 @@
         .list{
           opacity: 1;
           visibility: visible;
-          @include setIndex(5);
+          z-index: 5;
         }
       }
     }

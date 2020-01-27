@@ -15,7 +15,7 @@
     overflow-x: scroll;
     position: relative;
     @if($isFlex == 1){
-      @include is('flex');
+      display:flex;
       @include flow('row', 'nowrap');
     }
   }

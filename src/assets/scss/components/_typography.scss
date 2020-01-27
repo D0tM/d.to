@@ -21,7 +21,7 @@ input, select, textarea{
 input, textarea, select{
   @include calc-rem('padding', $baseline / 2);
   border:1px solid map-get($colors, 'border');
-  @include is('blunt');
+  border-radius: 5px;
 }
 h1, h2, h3, h4, h5, h6{
   font-weight: 900;

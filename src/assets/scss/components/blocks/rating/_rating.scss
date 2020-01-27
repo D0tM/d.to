@@ -2,7 +2,7 @@
   @if($isFloat == 1){
     @include is('inline');
   } @else if($isFlex == 1){
-    @include is('flex');
+    display:flex;
   }
   @at-root #{&}Wrap{
 
@@ -12,7 +12,7 @@
     font-size:0;
     @include has('text-center');
     @if($isFloat == 1){
-      @include is('inline-block');
+      display:flex;
     }
     &:not(:last-child){
       @include calc-rem('margin-right', $baseline / 2);

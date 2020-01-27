@@ -146,12 +146,6 @@
     & > *{
       font-size: $font-size;
     }
-  } @else if($param == 'fixed'){
-    position: fixed;
-  } @else if($param == 'absolute'){
-    position: absolute;
-  } @else if($param == 'flex'){
-    display:flex;
   } @else if($param == 'centered'){
     margin: 0 auto;
   } @else if($param == 'round'){
@@ -161,19 +155,11 @@
   } @else if($param == 'page-wide'){
     width:100%;
     height:100%;
-  } @else if($param == 'blunt'){
-    border-radius: 5px;
-  } @else if($param == 'inline-block'){
-    display:inline-block;
-  } @else if($param == 'block'){
-    display:block;
   }
 }
 
 @mixin has($param){
-  @if($param == 'rounded-borders'){
-    border-radius: 5px;
-  } @else if($param == 'text-left'){
+  @if($param == 'text-left'){
     text-align: left;
   } @else if($param == 'text-center'){
     text-align: center;
@@ -227,24 +213,10 @@
 }
 
 @mixin reset($param){
-  @if($param == 'bot'){
-    bottom:0;
-  } @else if($param == 'top'){
-    top:0;
-  } @else if($param == 'left'){
-    left:0;
-  } @else if($param == 'right'){
-    right:0;
-  } @else if($param == 'padding'){
-    margin-left: -$gutter;
-    margin-right: -$gutter;
+  @if($param == 'gutter'){
+    @include after('tablet'){
+      margin-left: -$gutter;
+      margin-right: -$gutter;
+    }
   }
-}
-
-@mixin setIndex($param){
-  z-index: $param;
-}
-
-@mixin vAlign($param){
-  vertical-align: unquote($param);
 }

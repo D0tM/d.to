@@ -2,14 +2,14 @@
   @if($isFlex == 1){
     flex: 0 0 auto;
   } @else if($isFloat == 1){
-    @include is('inline-block');
+    display:inline-block;
   }
   &:not(:last-child){
     @include calc-rem('margin-right', $gutter);
   }
   @at-root #{&}Wrap{
     @if($isFlex == 1){
-      @include is('flex');
+      display:flex;
       @include flow('row', 'wrap');
     } @else if($isFloat == 1){
       @include is('inline');
@@ -20,6 +20,6 @@
     background-color: map-get($colors, 'main');
     border:2px solid map-get($colors, 'border');
     @include calc-rem('padding', $baseline / 2);
-    @include is('block');
+    display:block;
   }
 }

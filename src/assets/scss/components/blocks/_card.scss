@@ -19,7 +19,7 @@
         @include calc-rem('min-height', 300px);
 
         .card__image {
-          @include is('absolute');
+          position: absolute;
           width: 100%;
           height: 100%;
           @include fly('top-left');

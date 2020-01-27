@@ -13,26 +13,26 @@
     }
     &:before{
       content: '';
-      @include is('absolute');
+      position: absolute;
       @include fly('top-left');
       @include is('page-wide');
-      @include setIndex(0);
+      z-index: 0;
       background-color: rgba(0,0,0,0.5);
     }
     @if($isFlex == 1){
-      @include is('flex');
+      display:flex;
       @include content('center');
       @include items('center');
     }
   }
   @at-root #{&}__content{
     @if($isFloat == 1){
-      @include is('absolute');
+      position: absolute;
       @include fly('center');
-      @include setIndex(1);
+      z-index: 1;
     } @else if($isFlex == 1){
       position: relative;
-      @include setIndex(1);
+      z-index: 1;
     }
   }
   @at-root #{&}__title{
@@ -42,9 +42,13 @@
 
   }
   @at-root #{&}__prev, #{&}__next{
-    @include is('absolute');
-    @include setIndex(1);
-    @include add-focus();
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 0;
+    &:before{
+      @include font-size($font-size);
+    }
   }
   @at-root #{&}__prev{
     @include fly('center-left');

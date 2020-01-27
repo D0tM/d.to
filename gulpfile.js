@@ -26,6 +26,10 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const chalk = require('chalk');
 
+//Modularization
+const njRender = require('gulp-nunjucks-render');
+var data = require('gulp-data');
+
 function css(done) {
 	src('./src/assets/scss/**/*.scss')
 		.pipe(sourcemaps.init())
@@ -44,45 +48,51 @@ function css(done) {
 };
 
 function js() {
-  return rollup.rollup({
-    input: './src/assets/js/main.js',
-    plugins: [
-      resolve(),
-      rollAsync(),
-      babel({
-        babelrc: false,
-        presets: [['@babel/preset-env', { modules: false }]],
-        plugins: ['@babel/plugin-syntax-dynamic-import']
-      })
-    ],
-    onwarn: function (warning, warn) {
-      if (warning.code === 'THIS_IS_UNDEFINED') return;
-      warn(warning);
-    }
-  }).then(bundle => {
-    return bundle.write({
-      dir: './dist/js',
-      format: 'iife',
-      compact: true,
-      sourcemap: true,
-      experimentalCodeSplitting: true
-    });
-  }).then(() => {
-    return src('./dist/js/main.js')
-      .pipe(uglify({
-        compress: { drop_console: false },
-        sourceMap: {
-          filename: "main.js",
-          url: "main.js.map"
-        }
+	return rollup.rollup({
+		input: './src/assets/js/main.js',
+		plugins: [
+			resolve(),
+			rollAsync(),
+			babel({
+				babelrc: false,
+				presets: [
+					['@babel/preset-env', {
+						modules: false
+					}]
+				],
+				plugins: ['@babel/plugin-syntax-dynamic-import']
+			})
+		],
+		onwarn: function (warning, warn) {
+			if (warning.code === 'THIS_IS_UNDEFINED') return;
+			warn(warning);
+		}
+	}).then(bundle => {
+		return bundle.write({
+			dir: './dist/js',
+			format: 'iife',
+			compact: true,
+			sourcemap: true,
+			experimentalCodeSplitting: true
+		});
+	}).then(() => {
+		return src('./dist/js/main.js')
+			.pipe(uglify({
+				compress: {
+					drop_console: false
+				},
+				sourceMap: {
+					filename: "main.js",
+					url: "main.js.map"
+				}
 			}))
-      .pipe(dest('./dist/js'));
-  });
+			.pipe(dest('./dist/js'));
+	});
 }
 
 function fonts() {
-  return src('./src/fonts/**/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(dest('./dist/fonts'));
+	return src('./src/fonts/**/*.{eot,svg,ttf,woff,woff2}')
+		.pipe(dest('./dist/fonts'));
 };
 
 
@@ -116,7 +126,20 @@ function watchFiles() {
 	watch('./src/assets/fonts/**/*.*', fonts);
 	console.log(chalk.bgGreen.black.bold('Watching files for changes...'));
 }
+
+function nunjucks() {
+	src('src/assets/templates/pages/**/*.+(html|nunjucks)')
+		.pipe(data(function() {
+			return require('src/assets/js/data.json')
+		}))
+		.pipe(njRender({
+			path: ['src/assets/templates']
+		}))
+		.pipe(gulp.dest('dist'))
+}
+
 task("watch", watchFiles);
+task("build-html", nunjucks);
 task("default", parallel(
 	css,
 	js,

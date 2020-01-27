@@ -17,7 +17,7 @@
   }
   @at-root #{&}__footer{
     @if($isFlex == 1){
-      @include is('flex');
+      display:flex;
       @include content('flex-end');
     } @else if($isFloat == 1){
       @include has('text-right');

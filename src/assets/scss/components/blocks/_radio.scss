@@ -1,7 +1,7 @@
 .radio{
   position:relative;
   input[type="radio"]{
-    @include is('absolute');
+    position: absolute;
     top:0;
     left:0;
     opacity:0;

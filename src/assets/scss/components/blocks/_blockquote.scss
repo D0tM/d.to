@@ -7,7 +7,7 @@
     @include font-size(20px);
   }
   &:before{
-    @include is('absolute');
+    position: absolute;
     @include font-size(70px);
     opacity:0.2;
   }
