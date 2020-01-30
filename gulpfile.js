@@ -127,19 +127,7 @@ function watchFiles() {
 	console.log(chalk.bgGreen.black.bold('Watching files for changes...'));
 }
 
-function nunjucks() {
-	src('src/assets/templates/pages/**/*.+(html|nunjucks)')
-		.pipe(data(function() {
-			return require('src/assets/js/data.json')
-		}))
-		.pipe(njRender({
-			path: ['src/assets/templates']
-		}))
-		.pipe(gulp.dest('dist'))
-}
-
 task("watch", watchFiles);
-task("build-html", nunjucks);
 task("default", parallel(
 	css,
 	js,
