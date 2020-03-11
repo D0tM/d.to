@@ -2,13 +2,18 @@
 .is\:sr-only{
   @include hide-text;
 }
+//Hide completely the element
+.is\:hidden{
+  @include hide-block;
+}
 //Hide everything on IE
-.ie-block{
+.ie-notice{
   position: fixed;
   @include fly('center');
   @include is('page-wide');
   text-align: center;
   & ~ * {
     opacity: 0;
+    visibility: hidden;
   }
 }

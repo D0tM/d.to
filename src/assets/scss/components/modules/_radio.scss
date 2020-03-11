@@ -1,0 +1,33 @@
+@if(map-get($modules, 'radio') == 1){
+.radio{
+  position:relative;
+  input[type="radio"]{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    width:1px;
+    height:1px;
+    &:checked{
+      & ~ .radio__label{
+        &:before{
+          content: '\ee72';
+        }
+      }
+    }
+    &:focus{
+      & ~ .radio__label {
+        @include add-focus();
+      }
+    }
+  }
+  @at-root #{&}__label{
+    cursor: pointer;
+    &:before{
+      @include calc-rem('margin-right', 5px);
+      @include font-size($font-size);
+      display:inline-block;
+    }
+  }
+}
+}

@@ -1,71 +1,105 @@
 @mixin generateColumns() {
-  $isPlural : '';
-  .span{
-    flex: 1 0 auto;
+  $isPlural: '';
+
+  @if($isFlex==1) {
+    .span {
+      flex: 1 0 auto;
+    }
+
+    .span\:auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
   }
-  .span\:auto{
-    flex: 0 0 auto;
-    width: auto;
-    max-width: 100%;
+
+  @else if($isFloat==1) {
+    .span {
+      width: auto;
+    }
+
+    .span\:auto {
+      width: auto;
+      max-width: 100%;
+    }
   }
+
   @for $i from 1 through $columns {
-    .span\:#{nth($columnName, $i)}{
+    .span\:#{nth($columnName, $i)} {
       padding: 0 $gutter;
-      @if($isFloat == 1){
-        float:left;
+
+      @if($isFloat==1) {
+        float: left;
         width: (100% / $columns) * $i;
-      } @else if($isFlex == 1){
+      }
+
+      @else if($isFlex==1) {
         flex: 0 0 (100% / $columns) * $i;
         max-width: (100% / $columns) * $i;
       }
-      @at-root .is\:inline #{&}{
-        display:inline-block;
+
+      @at-root .is\:inline #{&} {
+        display: inline-block;
         vertical-align: top;
         font-size: 1rem;
       }
     }
-    @if($i == 1){
+
+    @if($i==1) {
       $isPlural: 'column';
-    } @else {
+    }
+
+    @else {
       $isPlural: 'columns';
     }
-    .move\:#{nth($columnName, $i)}-#{$isPlural}{
-      &.to\:left{
+
+    .move\:#{nth($columnName, $i)}-#{$isPlural} {
+      &.to\:left {
         margin-right: (100% / $columns) * $i;
       }
-      &.to\:right{
+
+      &.to\:right {
         margin-left: (100% / $columns) * $i;
       }
     }
   }
 }
 
-@mixin generateFractions(){
-  @each $element, $fraction in $fractions {
-    .is\:#{$element}{
+@mixin generateFractions() {
+
+  @each $element,
+  $fraction in $fractions {
+    .is\:#{$element} {
       width: $fraction;
       padding: 0 $gutter;
-      @if($isFloat){
-        float:left;
-      } @else if($isFlex == 1){
+
+      @if($isFloat) {
+        float: left;
+      }
+
+      @else if($isFlex==1) {
         flex: 0 0 auto;
       }
     }
-    .move\:#{$element}{
-      &.to\:left{
+
+    .move\:#{$element} {
+      &.to\:left {
         margin-right: $fraction;
       }
-      &.to\:right{
+
+      &.to\:right {
         margin-left: $fraction;
       }
     }
   }
 }
 
-@mixin generateRow(){
-  @if($isFloat == 1){
+@mixin generateRow() {
+  @if($isFloat==1) {
     @include clearfix();
-  } @else if($isFlex == 1) {
+  }
+
+  @else if($isFlex==1) {
     display: flex;
     flex-flow: row wrap;
   }

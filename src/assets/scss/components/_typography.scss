@@ -17,8 +17,6 @@ select{
 input, select, textarea{
   width:100%;
   @include font-size($font-size);
-}
-input, textarea, select{
   @include calc-rem('padding', $baseline / 2);
   border:1px solid map-get($colors, 'border');
   border-radius: 5px;
@@ -98,6 +96,10 @@ cite{
   font-weight: bold;
 }
 iframe, video{
+  width:100%;
+  height: auto;
+}
+img{
   width:100%;
   height: auto;
 }

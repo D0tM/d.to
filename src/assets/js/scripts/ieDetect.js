@@ -1,6 +1,5 @@
 //IE detection until 10
-export default IE = (function () {
-    "use strict";
+export const IE = (function () {
 
     var ret, isTheBrowser,
         actualVersion,
@@ -31,4 +30,4 @@ export default IE = (function () {
 }());
 
 //Returns true if IE 11
-export default isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+export const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;

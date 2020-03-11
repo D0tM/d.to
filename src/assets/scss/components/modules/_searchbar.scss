@@ -1,0 +1,12 @@
+@if(map-get($modules, 'searchbar') == 1){
+.search{
+  @at-root #{&}Wrap{
+
+  }
+  @at-root #{&}__results{
+    @at-root #{&}Wrap{
+
+    }
+  }
+}
+}

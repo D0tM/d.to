@@ -1,0 +1,61 @@
+@if(map-get($modules, 'navbar')==1) {
+  @if($isFlex==1) {
+    .navbar {
+      display: flex;
+      @include flow('row', 'wrap');
+      @include content('space-between');
+      @include items('center');
+      padding: $baseline / 2;
+
+      @at-root #{&}Wrap {}
+
+      @at-root #{&}__logo {
+        @include calc-rem('max-width', 200px);
+
+        @at-root #{&}Wrap {}
+      }
+
+      @at-root #{&}__nav {
+        @at-root #{&}Wrap {}
+      }
+    }
+  }
+
+  @else if($isFloat==1) {
+    .navbar {
+      @include is('inline');
+
+      @at-root #{&}Wrap {}
+
+      @at-root #{&}__logo {
+        @include calc-rem('max-width', 200px);
+
+        @at-root #{&}Wrap {
+          display: inline-block;
+          @include has('text-left');
+          vertical-align: middle;
+          width: colWidth($columns / 2, $columns);
+        }
+      }
+
+      @at-root #{&}__nav {
+        @at-root #{&}Wrap {
+          display: inline-block;
+          @include has('text-right');
+          vertical-align: middle;
+          width: colWidth($columns / 2, $columns);
+        }
+      }
+    }
+  }
+
+  @include until('tablet'){
+    .navbar{
+      position: fixed;
+      @include fly('bottom-left');
+      z-index: 999;
+      width:100%;
+      background: map-get($colors, 'main');
+    }
+  }
+}

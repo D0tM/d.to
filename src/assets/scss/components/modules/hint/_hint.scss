@@ -1,0 +1,134 @@
+@if(map-get($modules, 'hint') == 1){
+$positions: 'center-right', 'center-left', 'center-top', 'center-bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right';
+.hint{
+  position: relative;
+  box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.4);
+  @at-root #{&}Wrap{
+    position: absolute;
+    z-index: 10;
+    @include calc-rem('min-width', 200px);
+    display:none;
+    @at-root #{&}.active{
+      display:block;
+    }
+    &[data-position="center-right"]{
+      top:50%;
+      left:calc(100% + 14px);
+      transform:translateY(-50%);
+    }
+    &[data-position="center-left"]{
+      top:50%;
+      right:calc(100% + 14px);
+      transform:translateY(-50%);
+    }
+    &[data-position="center-top"]{
+      bottom:calc(100% + 14px);
+      left:50%;
+      transform: translateX(-50%);
+    }
+    &[data-position="center-bottom"]{
+      top:calc(100% + 14px);
+      left:50%;
+      transform: translateX(-50%);
+    }
+    &[data-position="top-left"]{
+      bottom:calc(100% + 14px);
+      left:0;
+    }
+    &[data-position="top-right"]{
+      bottom:calc(100% + 14px);
+      right:0;
+    }
+    &[data-position="bottom-left"]{
+      top:calc(100% + 14px);
+      left:0;
+    }
+    &[data-position="bottom-right"]{
+      top:calc(100% + 14px);
+      right:0;
+    }
+  }
+  &[data-tailposition]{
+    &:before{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      box-sizing: border-box;
+      border: 7px solid black;
+      border-color: transparent transparent map-get($colors, 'main') map-get($colors, 'main');
+      transform-origin: 0 0;
+      box-shadow: -3px 3px 6px -2px rgba(0,0,0,0.4)
+    }
+  }
+  &[data-tailposition="center-right"]{
+    &:before{
+      top:50%;
+      @include calc-rem('right', -14px);
+      transform: translateY(75%) rotate(-135deg);
+    }
+  }
+  &[data-tailposition="center-left"]{
+    &:before{
+      top:50%;
+      left:0;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+  &[data-tailposition="center-top"]{
+    &:before{
+      top:0;
+      left:50%;
+      transform: translateX(50%) rotate(135deg);
+    }
+  }
+  &[data-tailposition="center-bottom"]{
+    &:before{
+      @include calc-rem('bottom', -14px);
+      left:50%;
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+  &[data-tailposition="top-left"]{
+    &:before{
+      top:0;
+      @include calc-rem('left', 19px);
+      transform: rotate(135deg);
+    }
+  }
+  &[data-tailposition="top-right"]{
+    &:before{
+      top:0;
+      @include calc-rem('right', -14px);
+      transform: rotate(135deg);
+    }
+  }
+  &[data-tailposition="bottom-left"]{
+    &:before{
+      left:0;
+      @include calc-rem('bottom', -14px);
+      transform: rotate(-45deg);
+    }
+  }
+  &[data-tailposition="bottom-right"]{
+    &:before{
+      @include calc-rem('right', 6px);
+      @include calc-rem('bottom', -14px);
+      transform: rotate(-45deg);
+    }
+  }
+  @at-root #{&}__title{
+    @include font-size(20px);
+    line-height: 1.25;
+    @include calc-rem('margin-bottom', ($baseline / 2) - 6);
+  }
+  @at-root #{&}__content{
+    @include calc-rem('padding', $baseline / 2);
+    background-color: map-get($colors, 'main');
+    @include font-size(16px);
+    p{
+      margin-bottom: 0;
+    }
+  }
+}
+}

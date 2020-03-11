@@ -1,0 +1,31 @@
+@if(map-get($modules, 'wizard') == 1){
+.wizard{  
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+  @include calc-rem('padding', $baseline);
+  @at-root #{&}Wrap{
+  }
+  @at-root #{&}__header{
+    @include has('text-center');
+  }
+  @at-root #{&}__title{
+
+  }
+  @at-root #{&}__subtitle{
+
+  }
+  @at-root #{&}__body{
+    position: relative;
+  }
+  @at-root #{&}__footer{
+    @if($isFlex == 1){
+      display:flex;
+      @include content('flex-end');
+    } @else if($isFloat == 1){
+      @include has('text-right');
+    }
+  }
+  @at-root #{&}__header, #{&}__body, #{&}__footer{
+    @include calc-rem('padding', $baseline / 2);
+  }
+}
+}

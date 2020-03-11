@@ -1,0 +1,104 @@
+@if(map-get($modules, 'tab')==1) {
+  .tab {
+    background-color: #e5e5e5;
+    position: relative;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+
+    @if($isFlex==1) {
+      display: flex;
+      @include flow('row', 'wrap');
+    }
+
+    @else if($isFloat==1) {}
+
+    input[type="radio"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+
+      @if($isFlex==1) {
+        &:focus {
+          &+.tab__label {
+            @include add-focus();
+          }
+        }
+
+        &:checked {
+          &+.tab__label {
+            background-color: #fff;
+          }
+
+          &+.tab__label+.tab__body {
+            @include calc-rem('padding', $baseline / 2);
+            height: auto;
+            opacity: 1;
+          }
+        }
+      }
+
+      @else if($isFloat==1) {
+        &:checked {
+          &+.tab__body {
+            position: relative;
+            height: auto;
+            opacity: 1;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    @at-root #{&}__label {
+      @include calc-rem('padding', $baseline / 2);
+      cursor: pointer;
+
+      @if($isFlex==1) {
+        order: 1;
+      }
+
+      @else if($isFloat==1) {
+        display: inline-block;
+      }
+
+      &.active {
+        @if($isFloat==1) {
+          background-color: #fff;
+        }
+      }
+
+      &:focus {
+        @if($isFloat==1) {
+          @include add-focus();
+        }
+      }
+    }
+
+    @at-root #{&}__header {
+      @if($isFloat==1) {
+        @include is('inline')
+      }
+    }
+
+    @at-root #{&}__body {
+      background-color: #fff;
+
+      @if($isFlex==1) {
+        width: 100%;
+        order: 99;
+        height: 0;
+        opacity: 0;
+      }
+
+      @else if($isFloat==1) {
+        @include calc-rem('padding', $baseline / 2);
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        z-index: -1;
+      }
+    }
+  }
+}

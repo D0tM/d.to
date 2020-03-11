@@ -1,0 +1,24 @@
+.row:not([id]):not(section),
+.row:not([id]):not(header),
+.row:not([id]):not(footer),
+.row:not([id]):not(main) {
+  @include generate-error('Each row must be identified by an ID to be targetable by any script.');
+}
+
+img:not([alt]) {
+  @include generate-error('Every image must have an ALT tag even if empty.');
+}
+
+body>div:empty,
+body>span:empty,
+body>i:empty,
+body>label:empty,
+body>strong:empty,
+body>b:empty,
+body>section:empty,
+body>article:empty,
+body>ul:empty,
+body>li:empty,
+body>a:empty {
+  @include generate-error('The DOM must not contain, any non JS generated empty element.');
+}

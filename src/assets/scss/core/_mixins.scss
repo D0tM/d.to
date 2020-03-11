@@ -3,18 +3,20 @@
 * Media queries                   *
 ###################################
 */
-@mixin until($breakpoint){
-  @media screen and (max-width: map-get($breakpoints, $breakpoint)){
+@mixin until($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
-@mixin after($breakpoint){
-  @media screen and (min-width: map-get($breakpoints, $breakpoint)){
+
+@mixin after($breakpoint) {
+  @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
-@mixin between($start, $end){
-  @media screen and (min-width: map-get($breakpoints, $start)) and (max-width: map-get($breakpoints, $end)){
+
+@mixin between($start, $end) {
+  @media screen and (min-width: map-get($breakpoints, $start)) and (max-width: map-get($breakpoints, $end)) {
     @content;
   }
 }
@@ -30,6 +32,26 @@
     display: block;
     clear: both;
   }
+}
+
+@mixin generate-error($message){
+  position: relative;
+  border:1px solid #FA2E3D;
+  &:before{
+    content: $message;
+    top:0;
+    left:0;
+    position: absolute;
+    z-index: 99999;
+    color: #fff;
+    background-color: #FA2E3D;
+    font-weight: bold;
+    padding: 10px;
+  }
+}
+
+@mixin drop-shadow{
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
 }
 
 @mixin hide-block {
@@ -54,34 +76,37 @@
 
 @mixin ellipsis($axis, $param) {
   overflow: hidden;
-	text-overflow: ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  @if($axis == 'width'){
+
+  @if($axis=='width') {
     max-width: $param;
-  } @else if($axis == 'height'){
+  }
+
+  @else if($axis=='height') {
     max-height: $param;
   }
 }
 
 @mixin calc-rem($property, $value, $important: false) {
 
-	$remSize: $value / $font-size;
-	$hasImportant: null;
+  $remSize: $value / $font-size;
+  $hasImportant: null;
 
-	@if $important == true or $important == important {
-		$hasImportant: !important;
-	}
+  @if $important==true or $important==important {
+    $hasImportant:  !important;
+  }
 
-	#{$property}: $value $hasImportant;
-	#{$property}: #{$remSize}rem $hasImportant;
+  #{$property}: $value $hasImportant;
+  #{$property}: #{$remSize}rem $hasImportant;
 }
 
-@mixin font-size($size,$unit:rem) {
-	font-size: calculateRem($size,$unit);
+@mixin font-size($size, $unit:rem) {
+  font-size: calculateRem($size, $unit);
 }
 
-@mixin add-focus(){
-  box-shadow: 0px 0px 0px 3px rgba(160,182,250,1);
+@mixin add-focus() {
+  box-shadow: 0px 0px 0px 3px rgba(160, 182, 250, 1);
 }
 
 /*
@@ -114,107 +139,149 @@
 @mixin can($param) {
   @if($param=='grow') {
     flex-grow: 1;
-  } @else if($param=='shrink') {
+  }
+
+  @else if($param=='shrink') {
     flex-shrink: 1;
   }
 }
 
-@mixin cant($param) {
+@mixin cannot($param) {
   @if($param=='grow') {
     flex-grow: 0;
-  } @else if($param=='shrink') {
+  }
+
+  @else if($param=='shrink') {
     flex-shrink: 0;
   }
 }
 
-@mixin order($param){
-  @if($param > $columns){
+@mixin order($param) {
+  @if($param > $columns) {
     $param: $columns
   }
+
   order: $param;
 }
 
-@mixin floatTo($param){
+@mixin floatTo($param) {
   float: unquote($param);
 }
 
-@mixin is($param){
-  @if($param == 'clearfix'){
+@mixin is($param) {
+  @if($param=='clearfix') {
     @include clearfix();
-  } @else if($param == 'inline'){
+  }
+
+  @else if($param=='inline') {
     font-size: 0;
-    & > *{
+
+    &>* {
       font-size: $font-size;
     }
-  } @else if($param == 'centered'){
+  }
+
+  @else if($param=='centered') {
     margin: 0 auto;
-  } @else if($param == 'round'){
+  }
+
+  @else if($param=='round') {
     border-radius: 50%;
-  }  @else if($param == 'hidden'){
+  }
+
+  @else if($param=='hidden') {
     @include hide-block;
-  } @else if($param == 'page-wide'){
-    width:100%;
-    height:100%;
+  }
+
+  @else if($param=='page-wide') {
+    width: 100%;
+    height: 100%;
   }
 }
 
-@mixin has($param){
-  @if($param == 'text-left'){
+@mixin has($param) {
+  @if($param=='text-left') {
     text-align: left;
-  } @else if($param == 'text-center'){
+  }
+
+  @else if($param=='text-center') {
     text-align: center;
-  } @else if($param == 'text-right'){
+  }
+
+  @else if($param=='text-right') {
     text-align: right;
   }
 }
 
-@mixin fly($param, $rotation:0){
-  @if($param == 'center'){
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-  } @else if($param == 'center-left'){
-    top:50%;
-    left:0;
-    @if($rotation != 0){
+@mixin fly($param, $rotation:0) {
+  @if($param=='center') {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @else if($param=='center-left') {
+    top: 50%;
+    left: 0;
+
+    @if($rotation !=0) {
       transform: translateY(-50%) rotate($rotation#{'deg'});
-    } @else {
+    }
+
+    @else {
       transform: translateY(-50%);
     }
-  } @else if($param == 'center-right'){
-    top:50%;
+  }
+
+  @else if($param=='center-right') {
+    top: 50%;
     right: 0;
-    transform:translateY(-50%);
-  } @else if($param == 'center-bottom'){
-    bottom:0;
+    transform: translateY(-50%);
+  }
+
+  @else if($param=='center-bottom') {
+    bottom: 0;
     left: 50%;
-    transform:translateX(-50%);
-  } @else if($param == 'center-top'){
-    top:0;
+    transform: translateX(-50%);
+  }
+
+  @else if($param=='center-top') {
+    top: 0;
     left: 50%;
-    @if($rotation != 0){
+
+    @if($rotation !=0) {
       transform: translateX(-50%) rotate($rotation#{'deg'});
-    } @else {
+    }
+
+    @else {
       transform: translateX(-50%);
     }
-  } @else if($param == 'top-left'){
-    left:0;
-    top:0;
-  } @else if($param == 'top-right'){
-    top:0;
-    right:0;
-  } @else if($param == 'bottom-left'){
-    bottom:0;
-    left:0;
-  } @else if($param == 'bottom-right'){
-    bottom:0;
-    right:0;
+  }
+
+  @else if($param=='top-left') {
+    left: 0;
+    top: 0;
+  }
+
+  @else if($param=='top-right') {
+    top: 0;
+    right: 0;
+  }
+
+  @else if($param=='bottom-left') {
+    bottom: 0;
+    left: 0;
+  }
+
+  @else if($param=='bottom-right') {
+    bottom: 0;
+    right: 0;
   }
 }
 
-@mixin reset($param){
-  @if($param == 'gutter'){
-    @include after('tablet'){
+@mixin reset($param) {
+  @if($param=='gutter') {
+    @include after('tablet') {
       margin-left: -$gutter;
       margin-right: -$gutter;
     }

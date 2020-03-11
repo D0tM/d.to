@@ -1,0 +1,13 @@
+@if(map-get($modules, 'pagination') == 1){
+.pagination{
+  @at-root #{&}Wrap{
+    
+  }
+  @at-root #{&}__item{
+
+  }
+  @at-root #{&}__link{
+    
+  }
+}
+}
