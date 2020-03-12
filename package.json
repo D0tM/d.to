@@ -11,6 +11,7 @@
 		"@babel/core": "^7.4.5",
 		"@babel/preset-env": "^7.4.5",
 		"babelify": "^10.0.0",
+		"browserify": "^16.5.0",
 		"chalk": "^2.4.2",
 		"gulp-autoprefixer": "^6.0.0",
 		"gulp-concat": "^2.5.2",
@@ -19,11 +20,8 @@
 		"gulp-sass": "^4.0.2",
 		"gulp-sourcemaps": "^2.6.1",
 		"gulp-uglify": "^3.0.0",
-		"imagemin": "^7.0.1",
-		"rollup": "^1.23.1",
-		"rollup-plugin-async": "^1.2.0",
-		"rollup-plugin-babel": "^4.3.3",
-		"rollup-plugin-node-resolve": "^5.2.0"
+		"vinyl-buffer": "^1.0.1",
+		"vinyl-source-stream": "^2.0.0"
 	},
 	"babel": {
 		"presets": [
