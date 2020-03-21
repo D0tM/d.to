@@ -3,10 +3,12 @@
 
   @if($isFlex==1) {
     .span {
+      padding: 0 $gutter;
       flex: 1 0 auto;
     }
 
     .span\:auto {
+      padding: 0 $gutter;
       flex: 0 0 auto;
       width: auto;
       max-width: 100%;
@@ -15,10 +17,12 @@
 
   @else if($isFloat==1) {
     .span {
+      padding: 0 $gutter;
       width: auto;
     }
 
     .span\:auto {
+      padding: 0 $gutter;
       width: auto;
       max-width: 100%;
     }

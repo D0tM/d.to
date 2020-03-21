@@ -7,7 +7,17 @@
       @include items('center');
       padding: $baseline / 2;
 
-      @at-root #{&}Wrap {}
+      @at-root #{&}Wrap {
+        position: fixed;
+        width:100%;
+        z-index: 100;
+        background-color: #fff;
+        @include fly('top-left');
+        @include drop-shadow();
+        @at-root .logged-in #{&}{
+          top:30px;
+        }
+      }
 
       @at-root #{&}__logo {
         @include calc-rem('max-width', 200px);

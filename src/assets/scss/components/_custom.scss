@@ -1,0 +1,40 @@
+.skipTo {
+  position: absolute;
+  z-index: 101;
+  top: 30px;
+  left: -666rem;
+  background-color: #fff;
+  padding: $baseline;
+  font-weight: bold;
+  @include drop-shadow();
+
+  &:focus {
+    left: 30px;
+  }
+}
+
+.title {
+}
+
+.subtitle {
+}
+
+.next,
+.prev {
+  position: absolute;
+  font-size: 0;
+  z-index: 9;
+  cursor: pointer;
+
+  &:before {
+    font-size: $font-size + 14;
+  }
+}
+
+.next {
+  @include fly('center-right');
+}
+
+.prev {
+  @include fly('center-left');
+}

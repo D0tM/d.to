@@ -2,7 +2,7 @@
 .button{
   padding: ($baseline / 2) ($baseline);
   display:inline-block;
-  @at-root#{&}Wrap{
+  @at-root #{&}Wrap{
     margin: $baseline 0;
   }
   @at-root #{&}--full{

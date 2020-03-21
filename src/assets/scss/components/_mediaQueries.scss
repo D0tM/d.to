@@ -1,5 +1,5 @@
 //Mobile
-@media screen and (min-width: map-get($breakpoints, 'mobile')){
+@media screen and (min-width: map-get($breakpoints, 'mobile') and (max-width: map-get($breakpoints, 'tablet'))){
   @if($isFractionBased == 1){
     .row {
       [class*="is"]{
@@ -84,6 +84,9 @@
         }
       }
     }
+  }
+  .wrapper{
+    max-width: map-get($wrapperWidths, 'desktop');
   }
 }
 

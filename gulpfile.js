@@ -24,8 +24,26 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const chalk = require('chalk');
 
+function css(done){
+	src('./src/assets/scss/**/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass({
+			errLogToConsole: true,
+			outputStyle: 'compressed'
+		}))
+		.on('error', console.error.bind(console))
+		.pipe(autoprefixer())
+		.pipe(rename({
+			basename: 'style',
+			suffix: '.min'
+		}))
+		.pipe(sourcemaps.write('/'))
+		.pipe(dest('./dist/css'))
+	done();
+}
 
-function css(done) {
+
+function buildCss(done) {
 	src('./src/assets/scss/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -43,7 +61,7 @@ function css(done) {
 	done();
 };
 
-function js(done){
+function buildJs(done){
 	browserify({
 			entries: ["./src/assets/js/main.js"]
 	})
@@ -54,6 +72,25 @@ function js(done){
 	})
 	.bundle()
 	.pipe(source('main' + '_' + Math.random().toString(20).substr(2, 9) + '.min.js'))
+	.pipe(buffer())
+	.pipe(sourcemaps.init())
+	.pipe(uglify())
+	.pipe(sourcemaps.write('/'))
+	.pipe(dest("./dist/js/"))
+	done();
+}
+
+function js(done){
+	browserify({
+			entries: ["./src/assets/js/main.js"]
+	})
+	.transform("babelify", {
+		presets: [
+			"@babel/preset-env"
+		]
+	})
+	.bundle()
+	.pipe(source('main.min.js'))
 	.pipe(buffer())
 	.pipe(sourcemaps.init())
 	.pipe(uglify())
@@ -83,8 +120,8 @@ function watchFiles() {
 
 task("watch", watchFiles);
 task("build", parallel(
-	css,
-	js,
+	buildCss,
+	buildJs,
 	fonts,
 	images
 ));

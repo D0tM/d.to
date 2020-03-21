@@ -14,6 +14,10 @@ textarea{
 select{
   appearance: none;
 }
+a{
+  color: map-get($colors, 'font');
+  text-decoration: none;
+}
 input, select, textarea{
   width:100%;
   @include font-size($font-size);
