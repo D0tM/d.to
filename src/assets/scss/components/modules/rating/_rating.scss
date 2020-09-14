@@ -1,7 +1,7 @@
 @if(map-get($modules, 'rating') == 1){
 .rating{
   @if($isFloat == 1){
-    @include is('inline');
+    display: inline-block;
   } @else if($isFlex == 1){
     display:flex;
   }
@@ -11,7 +11,7 @@
   @at-root #{&}__item{
     cursor: pointer;
     font-size:0;
-    @include has('text-center');
+    text-align: center;
     @if($isFloat == 1){
       display:flex;
     }

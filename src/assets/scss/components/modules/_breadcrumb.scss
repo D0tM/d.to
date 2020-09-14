@@ -20,7 +20,7 @@
     }
   }
   @at-root #{&}__list{
-    @include is('inline');
+    display: inline-block;
   }
   @at-root #{&}__link{
     position: relative;

@@ -2,7 +2,7 @@
 .row:not([id]):not(header),
 .row:not([id]):not(footer),
 .row:not([id]):not(main) {
-  @include generate-error('Each row must be identified by an ID to be targetable by any script.');
+  @include generate-error('Each row must be identified by an ID to be targetable by a script.');
 }
 
 img:not([alt]) {

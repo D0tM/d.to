@@ -1,5 +1,5 @@
 //Mobile
-@media screen and (min-width: map-get($breakpoints, 'mobile') and (max-width: map-get($breakpoints, 'tablet'))){
+@media screen and (max-width: map-get($breakpoints, 'tablet')){
   @if($isFractionBased == 1){
     .row {
       [class*="is"]{
@@ -11,16 +11,13 @@
     }
   } @else if($isColumnBased == 1){
     .row {
-      [class*="span"]{
+      [class*="grow"]{
         flex: 0 0 100%;
       }
-      [class*="span:#{#{nth($columnName, ($columns / 2))}}"]{
+      [class*="grow:#{#{nth($columnName, ($columns / 2))}}"]{
         flex: 0 0 50%;
       }
     }
-  }
-  .wrapper{
-    max-width: map-get($wrapperWidths, 'mobile');
   }
 }
 //Tablet

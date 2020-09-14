@@ -42,7 +42,7 @@
       position: fixed;
       z-index: 5;
       @include fly('top-left');
-      @include is('page-wide');
+      @include page-wide();
       opacity:0;
       visibility: hidden;
       pointer-events: none;

@@ -11,7 +11,7 @@
     @if($isFlex == 1){
       display:flex;
     } @else if($isFloat == 1){
-      @include is('clearfix');
+      @include clearfix();
     }
     @at-root .wizard #{&}{
       position: absolute;
@@ -31,13 +31,13 @@
     }
   }
   @at-root #{&}__description{
-    @include has('text-center');
+    text-align: center;
     @if($isFlex == 1){
       flex: 0 0 100%;
     } @else if($isFloat == 1){
       display:block;
       width:100%;
-      @include floatTo('left');
+      float: left;
     }
   }
   @at-root #{&}__item{
@@ -79,7 +79,7 @@
     color:#fff;
     display:inline-block;
     @include calc-rem('padding', $baseline / 2 - 6);
-    @include has('text-center');
+    text-align: center;
     &:before{
       @include calc-rem('margin-right', $gutter / 2);
       @include font-size($font-size - 3);

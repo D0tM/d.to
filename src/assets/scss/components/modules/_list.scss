@@ -12,14 +12,14 @@
     @if($isFlex == 1){
       display:flex;
     } @else if($isFloat == 1){
-      @include is('inline');
+      display: inline-block;
     }
   }
   @at-root .wizard #{&}{
     @if($isFlex == 1){
-      @include content('center');
+      justify-content: center;
     } @else if($isFloat == 1){
-      @include has('text-center');
+      text-align: center;
     }
   }
   @at-root .list__item--has-children #{&}{
@@ -42,7 +42,7 @@
         display:inline-block;
       }
       margin-bottom: 0;
-      @include calc-rem('margin-right', $baseline / 2);
+      @include calc-rem('padding', $baseline / 2);
     }
     @at-root #{&}--has-children{
       position: relative;
@@ -79,6 +79,9 @@
     @include font-size($font-size);
     margin-bottom: 0;
     line-height: 1;
+    @at-root .nav #{&}{
+      margin-top: 0;
+    }
   }
 }
 }

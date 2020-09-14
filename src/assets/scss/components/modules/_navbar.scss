@@ -2,25 +2,27 @@
   @if($isFlex==1) {
     .navbar {
       display: flex;
-      @include flow('row', 'wrap');
-      @include content('space-between');
-      @include items('center');
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
       padding: $baseline / 2;
 
       @at-root #{&}Wrap {
         position: fixed;
-        width:100%;
+        width: 100%;
         z-index: 100;
         background-color: #fff;
         @include fly('top-left');
         @include drop-shadow();
-        @at-root .logged-in #{&}{
-          top:30px;
+
+        @at-root .logged-in #{&} {
+          top: 30px;
         }
       }
 
       @at-root #{&}__logo {
-        @include calc-rem('max-width', 200px);
+        @include calc-rem('max-width', 130px);
+        margin-bottom: 0;
 
         @at-root #{&}Wrap {}
       }
@@ -33,7 +35,7 @@
 
   @else if($isFloat==1) {
     .navbar {
-      @include is('inline');
+      display: inline-block;
 
       @at-root #{&}Wrap {}
 
@@ -51,7 +53,7 @@
       @at-root #{&}__nav {
         @at-root #{&}Wrap {
           display: inline-block;
-          @include has('text-right');
+          text-align: right;
           vertical-align: middle;
           width: colWidth($columns / 2, $columns);
         }
@@ -59,12 +61,12 @@
     }
   }
 
-  @include until('tablet'){
-    .navbar{
+  @include until('tablet') {
+    .navbar {
       position: fixed;
       @include fly('bottom-left');
       z-index: 999;
-      width:100%;
+      width: 100%;
       background: map-get($colors, 'main');
     }
   }

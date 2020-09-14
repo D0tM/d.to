@@ -10,7 +10,7 @@
 .ie-notice{
   position: fixed;
   @include fly('center');
-  @include is('page-wide');
+  @include page-wide();
   text-align: center;
   & ~ * {
     opacity: 0;

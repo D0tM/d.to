@@ -2,12 +2,12 @@
   $isPlural: '';
 
   @if($isFlex==1) {
-    .span {
+    .grow {
       padding: 0 $gutter;
       flex: 1 0 auto;
     }
 
-    .span\:auto {
+    .grow\:auto {
       padding: 0 $gutter;
       flex: 0 0 auto;
       width: auto;
@@ -16,12 +16,12 @@
   }
 
   @else if($isFloat==1) {
-    .span {
+    .grow {
       padding: 0 $gutter;
       width: auto;
     }
 
-    .span\:auto {
+    .grow\:auto {
       padding: 0 $gutter;
       width: auto;
       max-width: 100%;
@@ -29,7 +29,7 @@
   }
 
   @for $i from 1 through $columns {
-    .span\:#{nth($columnName, $i)} {
+    .grow\:#{nth($columnName, $i)} {
       padding: 0 $gutter;
 
       @if($isFloat==1) {

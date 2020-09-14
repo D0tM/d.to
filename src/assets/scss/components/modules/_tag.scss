@@ -1,27 +1,34 @@
-@if(map-get($modules, 'tag') == 1){
-.tag{
-  @if($isFlex == 1){
-    flex: 0 0 auto;
-  } @else if($isFloat == 1){
-    display:inline-block;
-  }
-  &:not(:last-child){
-    @include calc-rem('margin-right', $gutter);
-  }
-  @at-root #{&}Wrap{
-    @if($isFlex == 1){
-      display:flex;
-      @include flow('row', 'wrap');
-    } @else if($isFloat == 1){
-      @include is('inline');
+@if(map-get($modules, 'tag')==1) {
+  .tag {
+    @if($isFlex==1) {
+      flex: 0 0 auto;
+    }
+
+    @else if($isFloat==1) {
+      display: inline-block;
+    }
+
+    &:not(:last-child) {
+      @include calc-rem('margin-right', $gutter);
+    }
+
+    @at-root #{&}Wrap {
+      @if($isFlex==1) {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      @else if($isFloat==1) {
+        display: inline-block;
+      }
+    }
+
+    @at-root #{&}__link {
+      font-weight: bold;
+      background-color: map-get($colors, 'main');
+      border: 2px solid map-get($colors, 'border');
+      @include calc-rem('padding', $baseline / 2);
+      display: block;
     }
   }
-  @at-root #{&}__link{
-    font-weight: bold;
-    background-color: map-get($colors, 'main');
-    border:2px solid map-get($colors, 'border');
-    @include calc-rem('padding', $baseline / 2);
-    display:block;
-  }
-}
 }

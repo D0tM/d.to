@@ -1,14 +1,13 @@
 //Grid variables
-$columnName : 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' !default;
-$font-size:16px!default;
+$columnName: 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' !default;
+$font-size: 16px!default;
 $font-family: 'Lato'!default;
-$columns: 10 !default;
+$columns: 12 !default;
 $gutter: 10px !default;
 $baseline: 24px !default;
 $icon-font: 'basic-icons'!default;
 
 $breakpoints: (
-    mobile: 480px,
     tablet: 768px,
     desktop: 992px,
     widescreen: 1200px
@@ -28,18 +27,16 @@ $fractions: (
 ) !default;
 
 //Switch on or off grid types
-
 $isFractionBased: 0 !default;
 $isColumnBased: 1 !default;
 $isFloat: 0 !default;
 $isFlex: 1 !default;
 
 //Wrapper widths
-
 $wrapperWidths: (
-    mobile: 400px,
-    tablet: 800px,
-    desktop: 1200px,
+    mobile: 750px, //>= 768px
+    tablet: 800px, //>= 992px
+    desktop: 1200px, //>= 1200px
 );
 
 $colors: (
@@ -53,27 +50,27 @@ $colors: (
 )!default;
 
 $modules: (
-    accordion: 0,
-    hint: 0,
-    modal: 0,
-    rating: 0,
-    tab: 0,
-    wizard: 0,
-    blockquote:0,
-    breadcrumbs:0,
-    button:0,
-    card:0,
-    checkbox:0,
-    divider:0,
-    form:0,
-    hero:0,
+    accordion: 1,
+    hint: 1,
+    modal: 1,
+    rating: 1,
+    tab: 1,
+    wizard: 1,
+    blockquote:1,
+    breadcrumbs:1,
+    button:1,
+    card:1,
+    checkbox:1,
+    divider:1,
+    form:1,
+    hero:1,
     list:1,
     navbar:1,
-    pagination:0,
-    radio:0,
-    searchbar:0,
-    slider:0,
-    switch:0,
-    table:0,
-    tag:0,
+    pagination:1,
+    radio:1,
+    searchbar:1,
+    slider:1,
+    switch:1,
+    table:1,
+    tag:1,
 );

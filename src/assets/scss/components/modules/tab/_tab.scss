@@ -6,7 +6,7 @@
 
     @if($isFlex==1) {
       display: flex;
-      @include flow('row', 'wrap');
+      flex-flow: row wrap;
     }
 
     @else if($isFloat==1) {}
@@ -78,7 +78,7 @@
 
     @at-root #{&}__header {
       @if($isFloat==1) {
-        @include is('inline')
+        display: inline-block;
       }
     }
 

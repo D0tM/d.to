@@ -1,61 +1,71 @@
-@if(map-get($modules, 'slider') == 1){
-.slider{
-  @at-root #{&}Wrap{
-    position: relative;
-  }
-  @at-root #{&}__item{
-    position: relative;
-    @include calc-rem('padding', $gutter);
-    @include calc-rem('min-height', 500px);
-    &[style]{
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    &:before{
-      content: '';
-      position: absolute;
-      @include fly('top-left');
-      @include is('page-wide');
-      z-index: 0;
-      background-color: rgba(0,0,0,0.5);
-    }
-    @if($isFlex == 1){
-      display:flex;
-      @include content('center');
-      @include items('center');
-    }
-  }
-  @at-root #{&}__content{
-    @if($isFloat == 1){
-      position: absolute;
-      @include fly('center');
-      z-index: 1;
-    } @else if($isFlex == 1){
+@if(map-get($modules, 'slider')==1) {
+  .slider {
+    @at-root #{&}Wrap {
       position: relative;
+    }
+
+    @at-root #{&}__item {
+      position: relative;
+      @include calc-rem('padding', $gutter);
+      @include calc-rem('min-height', 500px);
+
+      &[style] {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        @include fly('top-left');
+        @include page-wide();
+        z-index: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      @if($isFlex==1) {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+      }
+    }
+
+    @at-root #{&}__content {
+      @if($isFloat==1) {
+        position: absolute;
+        @include fly('center');
+        z-index: 1;
+      }
+
+      @else if($isFlex==1) {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    @at-root #{&}__title {}
+
+    @at-root #{&}__subtitle {}
+
+    @at-root #{&}__prev,
+    #{&}__next {
+      position: absolute;
       z-index: 1;
+      cursor: pointer;
+      font-size: 0;
+
+      &:before {
+        @include font-size($font-size);
+      }
+    }
+
+    @at-root #{&}__prev {
+      @include fly('center-left');
+    }
+
+    @at-root #{&}__next {
+      @include fly('center-right');
     }
   }
-  @at-root #{&}__title{
-
-  }
-  @at-root #{&}__subtitle{
-
-  }
-  @at-root #{&}__prev, #{&}__next{
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
-    font-size: 0;
-    &:before{
-      @include font-size($font-size);
-    }
-  }
-  @at-root #{&}__prev{
-    @include fly('center-left');
-  }
-  @at-root #{&}__next{
-    @include fly('center-right');
-  }
-}
 }
