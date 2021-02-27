@@ -1,11 +1,22 @@
 //Grid variables
-$columnName: 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' !default;
-$font-size: 16px!default;
-$font-family: 'Lato'!default;
+$columnName: 'one',
+'two',
+'three',
+'four',
+'five',
+'six',
+'seven',
+'eight',
+'nine',
+'ten',
+'eleven',
+'twelve' !default;
+$font-size: 16px !default;
+$font-family: 'Lato' !default;
 $columns: 12 !default;
 $gutter: 10px !default;
 $baseline: 24px !default;
-$icon-font: 'basic-icons'!default;
+$icon-font: 'basic-icons' !default;
 
 $breakpoints: (
     tablet: 768px,
@@ -47,7 +58,36 @@ $colors: (
     secondary: #fff,
     tertiary: #fff,
     shadow: #000,
-)!default;
+) !default;
+
+$social-colors: (
+    facebook: #1877F2,
+    twitter: #1da1f2,
+    instagram: #C32AA3,
+    whatsapp: #25D366,
+    telegram: #0088CC,
+    tumblr: #35465D,
+    reddit: #FF5700,
+    spotify: #1ED760,
+    messenger: #00B2FF,
+    ios: #A6B1B7,
+    android: #A4C639,
+    hangout: #1BA261,
+    slack: #4A154B,
+    discord: #7289DA,
+    twitch: #9146FF,
+    soundcloud: #FF5500,
+    deviantart: #05CC47,
+    steam: #171A21,
+    skype: #00AFF0,
+    youtube: #FF0000,
+    pinterest: #BD081C,
+    linekdin: #0A66C2,
+    dribbble: #EA4C89,
+    behance: #0059F7,
+    github: #2B3137,
+    flickr: #F40083,
+);
 
 $modules: (
     accordion: 1,

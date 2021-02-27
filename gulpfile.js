@@ -23,9 +23,15 @@ const buffer = require("vinyl-buffer");
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const chalk = require('chalk');
+const tinify = require('tinify');
+tinify.key = "YOUR_API_KEY";
 
-function css(done){
-	src('./src/assets/scss/**/*.scss')
+//Node
+const fs = require("fs");
+const path = require('path'); 
+
+function css(done) {
+	src('./assets/scss/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({
 			errLogToConsole: true,
@@ -44,7 +50,7 @@ function css(done){
 
 
 function buildCss(done) {
-	src('./src/assets/scss/**/*.scss')
+	src('./assets/scss/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({
 			errLogToConsole: true,
@@ -61,60 +67,88 @@ function buildCss(done) {
 	done();
 };
 
-function buildJs(done){
+function buildJs(done) {
 	browserify({
-			entries: ["./src/assets/js/main.js"]
-	})
-	.transform("babelify", {
-		presets: [
-			"@babel/preset-env"
-		]
-	})
-	.bundle()
-	.pipe(source('main' + '_' + Math.random().toString(20).substr(2, 9) + '.min.js'))
-	.pipe(buffer())
-	.pipe(sourcemaps.init())
-	.pipe(uglify())
-	.pipe(sourcemaps.write('/'))
-	.pipe(dest("./dist/js/"))
+			entries: ["./assets/js/main.js"]
+		})
+		.transform("babelify", {
+			presets: [
+				"@babel/preset-env"
+			]
+		})
+		.bundle()
+		.pipe(source('main' + '_' + Math.random().toString(20).substr(2, 9) + '.min.js'))
+		.pipe(buffer())
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
+		.pipe(sourcemaps.write('/'))
+		.pipe(dest("./dist/js/"))
 	done();
 }
 
-function js(done){
+function js(done) {
 	browserify({
-			entries: ["./src/assets/js/main.js"]
-	})
-	.transform("babelify", {
-		presets: [
-			"@babel/preset-env"
-		]
-	})
-	.bundle()
-	.pipe(source('main.min.js'))
-	.pipe(buffer())
-	.pipe(sourcemaps.init())
-	.pipe(uglify())
-	.pipe(sourcemaps.write('/'))
-	.pipe(dest("./dist/js/"))
+			entries: ["./assets/js/main.js"]
+		})
+		.transform("babelify", {
+			presets: [
+				"@babel/preset-env"
+			]
+		})
+		.bundle()
+		.pipe(source('main.min.js'))
+		.pipe(buffer())
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
+		.pipe(sourcemaps.write('/'))
+		.pipe(dest("./dist/js/"))
 	done();
 }
 
 function fonts(done) {
-	src('./src/assets/fonts/*.{eot,svg,ttf,woff,woff2}')
+	src('./assets/fonts/*.{eot,svg,ttf,woff,woff2}')
 		.pipe(dest('./dist/fonts'))
 	done();
 };
 
 
-function images(done) {
-	src('./src/assets/images/**/*.*')
-		.pipe(dest('./dist/images'))
-	done();	
+function images() {
+	fs.readdir('.assets/images', (err, files) => {
+		if (err) throw err;
+
+		files.forEach(file => {
+			fileExt = path.extname(file);
+
+			switch(fileExt){
+				case '.jpg':
+					tinifyImage(file);
+					break;
+				case '.jpeg':
+					tinifyImage(file);
+					break;
+				case '.png':
+					tinifyImage(file);
+					break;
+				default:
+					dest('./dist/css');
+					break;
+			}
+		});
+	});
+}
+
+function tinifyImage(image){
+	source = tinify.fromUrl('./assets/images/' + image);
+	source.toFile(curImage);
+	fs.rename('./assets/images', './dist/images', function (err) {
+		if (err) throw err;
+		console.log(chalk.bgGreen.black.bold('Successfully compressed ==>' + ' ' + image));
+	})
 }
 
 function watchFiles() {
-	watch('./src/assets/scss/**/*.scss', css);
-	watch('./src/assets/js/**/*.js', js);
+	watch('./assets/scss/**/*.scss', css);
+	watch('./assets/js/**/*.js', js);
 	console.log(chalk.bgGreen.black.bold('Watching files for changes...'));
 }
 
