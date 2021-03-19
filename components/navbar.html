@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="../dist/css/style.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="navbar__container">
+      <div class="navbar__logo">
+        <img src="https://logoipsum.com/logo/logo-25.svg" alt="">
+      </div>
+      <!--End logo-->
+      <nav class="navbar">
+        <h4 class="is:sr-only">Navbar title</h4>
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">
+              <h6 class="navbar__title">Link</h6>
+            </a>
+          </li>
+          <!--End item-->
+          <li class="navbar__item navbar__item--has-sublist">
+            <a href="#" class="navbar__link">
+              <h5 class="navbar__title">Link</h5>
+            </a>
+            <ul class="navbar__sublist">
+              <li class="navbar__item">
+                <a href="#" class="navbar__link">
+                  <h6 class="navbar__title">Sublink</h6>
+                </a>
+              </li>
+              <!--End subitem-->
+              <li class="navbar__item">
+                <a href="#" class="navbar__link">
+                  <h6 class="navbar__title">Very_long_sub_link</h6>
+                </a>
+              </li>
+              <!--End subitem-->
+            </ul>
+          </li>
+          <!--End item-->
+        </ul>
+      </nav>
+      <nav class="actions__container">
+        <h4 class="is:sr-only">Navbar title</h4>
+        <div class="actions">
+          <ul class="navbar__list">
+            <li class="navbar__item navbar__item--has-sublist" data-icon="">
+              <h5 class="navbar__title">Actions</h5>
+              <ul class="navbar__sublist">
+                <li class="navbar__item">
+                  <a href="#" class="navbar__link">
+                    <h6 class="navbar__title">Action_Link</h6>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</body>
+
+</html>

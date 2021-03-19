@@ -113,7 +113,7 @@ function fonts(done) {
 
 
 function images() {
-	fs.readdir('.assets/images', (err, files) => {
+	fs.readdir('./assets/images', (err, files) => {
 		if (err) throw err;
 
 		files.forEach(file => {
@@ -138,12 +138,13 @@ function images() {
 }
 
 function tinifyImage(image){
-	source = tinify.fromUrl('./assets/images/' + image);
-	source.toFile(curImage);
+	const source = tinify.fromUrl('./assets/images/' + image);
+	source.toFile(image);
+	dest('./dist/css');
 	fs.rename('./assets/images', './dist/images', function (err) {
 		if (err) throw err;
 		console.log(chalk.bgGreen.black.bold('Successfully compressed ==>' + ' ' + image));
-	})
+	});
 }
 
 function watchFiles() {
@@ -157,7 +158,7 @@ task("build", parallel(
 	buildCss,
 	buildJs,
 	fonts,
-	images
+	//images
 ));
 task("default", parallel(
 	css,

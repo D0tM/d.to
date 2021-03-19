@@ -1,73 +1,70 @@
 @if(map-get($modules, 'navbar')==1) {
-  @if($isFlex==1) {
-    .navbar {
+  .navbar{
+    @at-root #{&}__container{
+      padding: 0 calculateRem($gutter);
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: center;
+      background-color: #fff;
+      box-shadow: 0px 0px 5px 0px rgb(0, 0, 35%);
+    }
+
+    @at-root #{&}__logo{
+      img{
+        max-width: calculateRem(150px);
+      }
+    }
+
+    @at-root #{&}__list{
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    @at-root #{&}__sublist{
+      white-space: nowrap;
+      background-color: #fff;
+      box-shadow: 0px 0px 5px 0px rgb(0, 0, 35%);
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      top: calc(100% + 10px);
+      transition: opacity 0.25s, top 0.25s;
+    }
+
+    @at-root #{&}__item{
       padding: $baseline / 2;
-
-      @at-root #{&}Wrap {
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-        background-color: #fff;
-        @include fly('top-left');
-        @include drop-shadow();
-
-        @at-root .logged-in #{&} {
-          top: 30px;
+      &:hover, &:focus, &:active{
+        .navbar__sublist{
+          opacity: 1;
+          top: 100%;
+          transition: opacity 0.25s, top 0.25s;
         }
       }
-
-      @at-root #{&}__logo {
-        @include calc-rem('max-width', 130px);
-        margin-bottom: 0;
-
-        @at-root #{&}Wrap {}
+      @at-root #{&}--has-sublist{
+        position: relative;
       }
 
-      @at-root #{&}__nav {
-        @at-root #{&}Wrap {}
-      }
-    }
-  }
-
-  @else if($isFloat==1) {
-    .navbar {
-      display: inline-block;
-
-      @at-root #{&}Wrap {}
-
-      @at-root #{&}__logo {
-        @include calc-rem('max-width', 200px);
-
-        @at-root #{&}Wrap {
-          display: inline-block;
-          @include has('text-left');
-          vertical-align: middle;
-          width: colWidth($columns / 2, $columns);
-        }
-      }
-
-      @at-root #{&}__nav {
-        @at-root #{&}Wrap {
-          display: inline-block;
-          text-align: right;
-          vertical-align: middle;
-          width: colWidth($columns / 2, $columns);
+      @at-root .navbar__sublist #{&}{
+        &:not(:last-child){
+          padding-bottom: 0;
         }
       }
     }
+
+    @at-root #{&}__link{
+      display: block;
+      text-decoration: none;
+    }
+
+    @at-root #{&}__title{
+      font-weight: normal;
+    }
   }
 
-  @include until('tablet') {
-    .navbar {
-      position: fixed;
-      @include fly('bottom-left');
-      z-index: 999;
-      width: 100%;
-      background: map-get($colors, 'main');
+  .actions{
+    @at-root #{&}__container{
+
     }
   }
 }

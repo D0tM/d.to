@@ -11,7 +11,7 @@
  * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
  */
 if (window.Element && !Element.prototype.closest) {
-	Element.prototype.closest = function(s) {
+	Element.prototype.closest = function (s) {
 		var matches = (this.document || this.ownerDocument).querySelectorAll(s),
 			i,
 			el = this;
@@ -32,7 +32,11 @@ if (window.Element && !Element.prototype.closest) {
 	if (typeof window.CustomEvent === "function") return false;
 
 	function CustomEvent(event, params) {
-		params = params || { bubbles: false, cancelable: false, detail: undefined };
+		params = params || {
+			bubbles: false,
+			cancelable: false,
+			detail: undefined
+		};
 		var evt = document.createEvent('CustomEvent');
 		evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
 		return evt;
@@ -49,20 +53,22 @@ if (window.Element && !Element.prototype.closest) {
  * @link http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
  * @license MIT
  */
-(function() {
+(function () {
 	var lastTime = 0;
 	var vendors = ['ms', 'moz', 'webkit', 'o'];
-	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-		window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-		window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] ||
-		                              window[vendors[x]+'CancelRequestAnimationFrame'];
+	for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+		window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+		window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||
+			window[vendors[x] + 'CancelRequestAnimationFrame'];
 	}
 
 	if (!window.requestAnimationFrame) {
-		window.requestAnimationFrame = function(callback, element) {
+		window.requestAnimationFrame = function (callback, element) {
 			var currTime = new Date().getTime();
 			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-			var id = window.setTimeout((function() { callback(currTime + timeToCall); }),
+			var id = window.setTimeout((function () {
+					callback(currTime + timeToCall);
+				}),
 				timeToCall);
 			lastTime = currTime + timeToCall;
 			return id;
@@ -70,7 +76,7 @@ if (window.Element && !Element.prototype.closest) {
 	}
 
 	if (!window.cancelAnimationFrame) {
-		window.cancelAnimationFrame = function(id) {
+		window.cancelAnimationFrame = function (id) {
 			clearTimeout(id);
 		};
 	}
@@ -319,7 +325,7 @@ if (window.Element && !Element.prototype.closest) {
 		if (clip) {
 			location = Math.min(location, getDocumentHeight() - window.innerHeight);
 		}
- 		return location;
+		return location;
 	};
 
 	/**
@@ -354,8 +360,7 @@ if (window.Element && !Element.prototype.closest) {
 		hash = hash ? hash : '';
 
 		// Set a default history
-		history.replaceState(
-			{
+		history.replaceState({
 				smoothScroll: JSON.stringify(options),
 				anchor: hash ? hash : window.pageYOffset
 			},
@@ -380,8 +385,7 @@ if (window.Element && !Element.prototype.closest) {
 		if (!history.pushState || !options.updateURL) return;
 
 		// Update URL
-		history.pushState(
-			{
+		history.pushState({
 				smoothScroll: JSON.stringify(options),
 				anchor: anchor.id
 			},
@@ -414,7 +418,7 @@ if (window.Element && !Element.prototype.closest) {
 			anchor.focus();
 			anchor.style.outline = 'none';
 		}
-		window.scrollTo(0 , endLocation);
+		window.scrollTo(0, endLocation);
 
 	};
 
@@ -533,7 +537,9 @@ if (window.Element && !Element.prototype.closest) {
 			 * Loop scrolling animation
 			 */
 			var loopAnimateScroll = function (timestamp) {
-				if (!start) { start = timestamp; }
+				if (!start) {
+					start = timestamp;
+				}
 				timeLapsed += timestamp - start;
 				percentage = speed === 0 ? 0 : (timeLapsed / speed);
 				percentage = (percentage > 1) ? 1 : percentage;
@@ -639,7 +645,9 @@ if (window.Element && !Element.prototype.closest) {
 			}
 
 			// Animate scroll to anchor link
-			smoothScroll.animateScroll(anchor, null, {updateURL: false});
+			smoothScroll.animateScroll(anchor, null, {
+				updateURL: false
+			});
 
 		};
 

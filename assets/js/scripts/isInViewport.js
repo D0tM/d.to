@@ -14,9 +14,9 @@ export const isInViewport = function (elem) {
       distance.left >= 0 &&
       distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
       distance.right <= (window.innerWidth || document.documentElement.clientWidth)) {
-        var revealEvent = document.createEvent('reveal');
-        revealEvent.initEvent('reveal', true, true);
-        event.target.dispatchEvent('reveal');
+      var revealEvent = document.createEvent('reveal');
+      revealEvent.initEvent('reveal', true, true);
+      event.target.dispatchEvent('reveal');
     }
 
   });

@@ -1,29 +1,29 @@
-let defConfig = { 
-  attributes: true, 
-  childList: true, 
-  subtree: true 
+let defConfig = {
+  attributes: true,
+  childList: true,
+  subtree: true
 };
 
-const callback = function(mutationsList, observer) {
-  for(let mutation of mutationsList) {
-    switch(mutation.type){
+const callback = function (mutationsList, observer) {
+  for (let mutation of mutationsList) {
+    switch (mutation.type) {
       case 'childList':
         var childEvent = document.createEvent('childChanged');
         childEvent.initEvent('childChanged', true, true);
-        event.target.dispatchEvent('childChanged');
+        e.target.dispatchEvent('childChanged');
         break;
       case 'attributes':
         var attrEvent = document.createEvent('attrChanged');
         attrEvent.initEvent('attrChanged', true, true);
-        event.target.dispatchEvent('attrChanged');
-        break;  
+        e.target.dispatchEvent('attrChanged');
+        break;
     }
   }
 };
 
-export const Observer = function(target, config){
+export const Observer = function (target, config) {
 
-  if(typeof(config) === 'object'){
+  if (typeof (config) === 'object') {
     defConfig = config;
   }
 
